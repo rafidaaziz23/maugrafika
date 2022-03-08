@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,22 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/main', function () {
-    return view('layouts.main');
+// Route::get('/main', function () {
+//     return view('layouts.main');
+// });
+
+
+// Route::get('/role', function () {
+//     return view('role', [
+//         "page" => "role"
+//     ]);
+// });
+Route::get('/role', [RoleController::class, 'index']);
+
+Route::get('/user', function () {
+    return view('user', [
+        "page" => "user"
+    ]);
 });
 
 Route::get('/login', function () {
