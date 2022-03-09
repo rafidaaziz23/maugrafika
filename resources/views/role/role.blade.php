@@ -91,7 +91,7 @@
          </div>
          <!--end::Dropdown-->
          <!--begin::Button-->
-         <a href="#" class="btn btn-light-success btn-sm font-weight-bolder">
+         <a href="role/tambah" class="btn btn-light-success btn-sm font-weight-bolder">
             <span class="svg-icon svg-icon-succcess svg-icon-2x">
                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -172,10 +172,14 @@
             <th style=" width: 18%;text-align:center;">Aksi</th>
          </thead>
          <tbody>
-
+            @foreach($roles as $key=>$value)
             <tr>
-               <td>1.</td>
-               <td>Admin</td>
+               <td>
+                  <?php
+                  $i = 1;
+                  echo $i++; ?>
+               </td>
+               <td>{{ $value->role_nama }}</td>
                <td>
                   <a href="javascript:;" class="btn btn-sm btn-warning" title="Edit" onclick="onEdit(this)">
                      <i class="far fa-edit"></i> Edit
@@ -185,6 +189,7 @@
                   </a>
                </td>
             </tr>
+            @endforeach
 
             <!-- <tr>
                <td>2.</td>

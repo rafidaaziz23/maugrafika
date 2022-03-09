@@ -15,10 +15,11 @@ class RoleController extends Controller
      */
     public function index()
     {
-        // $datas = Role::all();
-        return view('role');
+        $roles = Role::all();
 
-        // return $datas;
+        return view('role.role', compact(
+            'roles'
+        ));
     }
 
     /**
@@ -28,7 +29,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('role.form');
     }
 
     /**

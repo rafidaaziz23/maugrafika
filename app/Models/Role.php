@@ -14,11 +14,11 @@ class Role extends Model
         'role_is_active',
     ];
 
-    protected $table = [
-        'roles'
-    ];
+    // protected $table = [
+    //     'roles'
+    // ];
 
-    protected $primarykey = [
-        'id'
-    ];
+    // protected $primarykey = [
+    //     'id'
+    // ];
 }

@@ -28,7 +28,10 @@ use Illuminate\Support\Facades\Route;
 //         "page" => "role"
 //     ]);
 // });
+
+// Routes Roles 
 Route::get('/role', [RoleController::class, 'index']);
+Route::get('/role/tambah', [RoleController::class, 'create']);
 
 Route::get('/user', function () {
     return view('user', [
