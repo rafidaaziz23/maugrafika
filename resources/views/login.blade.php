@@ -68,6 +68,9 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="login-divider">
                <div></div>
             </div>
+            @if (Session::has('error'))
+            <p class="mb-15 text-muted font-weight-bold">{{Session::get('error')}}</p>
+            @endif
             <!--end:Divider-->
             <!--begin:Content-->
             <div class="d-flex w-100 flex-center p-15 position-relative overflow-hidden">
@@ -78,7 +81,8 @@ License: You must have a valid license purchased only from themeforest(the above
                         <h2 class="font-weight-bold">Sign In</h2>
                         <p class="text-muted font-weight-bold">Enter your username and password</p>
                      </div>
-                     <form class="form text-left" id="kt_login_signin_form">
+                     <form action="{{route('postLogin')}}" method="POST" class="form text-left" id="kt_login_signin_form">
+                        @csrf
                         <div class="form-group py-2 m-0">
                            <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="text" placeholder="Username" name="username" autocomplete="off" />
                         </div>
@@ -94,7 +98,7 @@ License: You must have a valid license purchased only from themeforest(the above
                            <a href="javascript:;" id="kt_login_forgot" class="text-muted text-hover-primary font-weight-bold">Forget Password ?</a>
                         </div>
                         <div class="text-center mt-15">
-                           <button id="kt_login_signin_submit" class="btn btn-primary btn-pill shadow-sm py-4 px-9 font-weight-bold">Sign In</button>
+                           <button type="submit" id="kt_login_signin_submit" class="btn btn-primary btn-pill shadow-sm py-4 px-9 font-weight-bold">Sign In</button>
                         </div>
                      </form>
                   </div>

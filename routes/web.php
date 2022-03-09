@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +43,8 @@ Route::get('/user', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::post('/login', [LoginController::class, 'storeLogin'])->name('postLogin')->middleware('guest');
+Route::get('/world', function() {
+    return view('world');
+})->middleware('auth');
