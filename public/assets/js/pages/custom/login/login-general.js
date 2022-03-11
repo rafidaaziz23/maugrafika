@@ -51,7 +51,7 @@ var KTLogin = function() {
 
         $('#kt_login_signin_submit').on('click', function (e) {
             e.preventDefault();
-
+				var form = $(this).parents('form');
             validation.validate().then(function(status) {
 		        if (status == 'Valid') {
                     swal.fire({
@@ -62,8 +62,9 @@ var KTLogin = function() {
                         customClass: {
     						confirmButton: "btn font-weight-bold btn-light-primary"
     					}
-		            }).then(function() {
+		            }).then(function(isConfirm) {
 						KTUtil.scrollTop();
+						if (isConfirm) form.submit();
 					});
 				} else {
 					swal.fire({

@@ -1,5 +1,6 @@
-@include('layouts.main')
+@extends('layouts.main')
 
+@section('content')
 <div class="card">
    <div class="card card-custom">
       <div class="card-header flex-wrap border-0 pt-6 pb-0">
@@ -10,14 +11,17 @@
             <a href="#" class="btn btn-sm btn-default"><i class="fas fa-angle-left"></i>Kembali</a>
          </div>
       </div>
-      <form action="">
+      <form action="{{ route('role.update',$model->id) }}" method="POST">
+         @csrf
+         @method('PUT')
          <div class="card-body">
             <div class="form-group row">
+               <!-- <input type="hidden" name="_method" value="PATCH"> -->
                <label class="col-3 col-form-label">Nama Role
                   <span class="text-danger">*</span>
                </label>
                <div class="col-6">
-                  <input type="text" name="role_nama" id="role_nama" class="form-control" placeholder="Masukkan Nama" />
+                  <input type="text" name="role_nama" id="role_nama" class="form-control" value="{{ $model->role_nama }}" placeholder="Masukkan Nama" />
                </div>
             </div>
             <div class="form-group row">
@@ -25,7 +29,7 @@
                <div class="col-3">
                   <span class="switch switch-success">
                      <label>
-                        <input type="checkbox" checked="checked" name="select" />
+                        <input type="checkbox" checked="checked" name="role_is_active" value="{{ $model->role_is_active }}" />
                         <span></span>
                      </label>
                   </span>
@@ -39,4 +43,4 @@
    </div>
 </div>
 
-@include('layouts.footer')
+@endsection

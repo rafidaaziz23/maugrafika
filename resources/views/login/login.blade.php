@@ -47,7 +47,7 @@ License: You must have a valid license purchased only from themeforest(the above
    <div class="d-flex flex-column flex-root">
       <!--begin::Login-->
       <div class="login login-6 login-signin-on login-signin-on d-flex flex-column-fluid" id="kt_login">
-         <div class="d-flex flex-column flex-lg-row flex-row-fluid text-center" style="background-image: url(assets/media/bg/bg-3.jpg);">
+         <div class="d-flex flex-column flex-lg-row flex-row-fluid text-center" style="background-image: url(assets/media/bg/bg-2.jpg);">
             <!--begin:Aside-->
             <div class="d-flex w-100 flex-center p-15">
                <div class="login-wrapper">
@@ -81,7 +81,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <h2 class="font-weight-bold">Sign In</h2>
                         <p class="text-muted font-weight-bold">Enter your username and password</p>
                      </div>
-                     <form action="{{route('postLogin')}}" method="POST" class="form text-left" id="kt_login_signin_form">
+                     <form action="{{ route('postLogin') }}" method="POST" class="form text-left" id="kt_login_signin_form">
                         @csrf
                         <div class="form-group py-2 m-0">
                            <input class="form-control h-auto border-0 px-0 placeholder-dark-75" type="text" placeholder="Username" name="username" autocomplete="off" />

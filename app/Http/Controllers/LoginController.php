@@ -9,10 +9,16 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-   public function storeLogin(Request $request)
+   public function view(StoreRoleRequest $request)
+   {
+      return view('login.login');
+   }
+
+   public function storeLogin(StoreRoleRequest $request)
    {
       $cekUser = User::where('user_username', $request->username)->first();
 
@@ -22,6 +28,6 @@ class LoginController extends Controller
       }
 
       Auth::login($cekUser);
-      return redirect()->intended(RouteServiceProvider::WORLD);
+      return redirect()->intended(RouteServiceProvider::HOME);
    }
 }

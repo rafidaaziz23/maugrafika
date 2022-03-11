@@ -15,11 +15,15 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
+        $roles = Role::latest()->get();
 
-        return view('role.role', compact(
-            'roles'
-        ));
+        return view('master.role.role', compact('roles'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+        // $roles = Role::all();
+
+        // return view('master.role.role', compact(
+        //     'roles'
+        // ));
     }
 
     /**
@@ -29,7 +33,10 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('role.form');
+        $model = new Role;
+        return view('master.role.form', compact(
+            'model'
+        ));
     }
 
     /**
@@ -38,9 +45,24 @@ class RoleController extends Controller
      * @param  \App\Http\Requests\StoreRoleRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRoleRequest $request)
+    public function store(StoreRoleRequest  $request)
     {
-        //
+        // $request->validate([
+        //     'role_nama' => 'required',
+        //     'role_is_active' => 'required',
+        // ]);
+
+        // Role::create($request->all());
+
+        // return redirect()->route('master.role.role')
+        //     ->with('success', 'Role created successfully.');
+
+        $model = new Role;
+        $model->role_nama = $request->role_nama;
+        // $model->role_is_active = $request->role_is_active;
+        $model->save();
+
+        return redirect('master.role.role');
     }
 
     /**
@@ -59,12 +81,16 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Role  $role
+     * @param  \App\Models\Role $role
      * @return \Illuminate\Http\Response
      */
     public function edit(Role $role)
     {
-        //
+        $model = Role::find($role);
+        return view('master.role.edit', compact('model'));
+        // return view('master.role.edit', compact(
+        //     'model'
+        // ));
     }
 
     /**
@@ -76,7 +102,12 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        //
+        $model = Role::find($role);
+        $model->role_nama = $request->role_nama;
+        // $model->role_is_active = $request->role_is_active;
+        $model->save();
+
+        return redirect('master.role.role');
     }
 
     /**
@@ -87,6 +118,13 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+
+        return redirect()->route('role.index')
+            ->with('success', 'Role deleted successfully');
+
+        // $model = Role::find($role);
+        // $model->delete();
+        // return redirect('master.role.role');
     }
 }

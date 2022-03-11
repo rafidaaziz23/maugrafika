@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RoleController;
+use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,20 +32,41 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Routes Roles 
-Route::get('/role', [RoleController::class, 'index']);
-Route::get('/role/tambah', [RoleController::class, 'create']);
+// Route::get('/role', [RoleController::class, 'index'])->middleware('auth');
+Route::resource('role', RoleController::class)->middleware('auth');
+// Route::get('/role/tambah', [RoleController::class, 'create']);
+// Route::post('/role', [RoleController::class, 'store'])->name('postRole');
+// Route::post('/role/store', [RoleController::class, 'store']);
+// Route::get('/role/{{$role}}/edit', function (Role $role) {
+//     return view('master.role/update');
+// });
+// Route::resource('/')
+
+Route::get('/master', function () {
+    return view('master');
+});
 
 Route::get('/user', function () {
-    return view('user', [
+    return view('master.user.user', [
         "page" => "user"
     ]);
 });
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/login', [LoginController::class, 'view'])->name('login');
+
+Route::post('/login/auth', [LoginController::class, 'storeLogin'])->name('postLogin')->middleware('guest');
+
+
+// 
+// *
+// *
+// *
+// Route For Portal
+
+Route::get('/home', function () {
+    return view('portal.home.home');
 });
 
-Route::post('/login', [LoginController::class, 'storeLogin'])->name('postLogin')->middleware('guest');
-Route::get('/world', function() {
-    return view('world');
-})->middleware('auth');
+Route::get('/coba', function () {
+    return view('coba');
+});

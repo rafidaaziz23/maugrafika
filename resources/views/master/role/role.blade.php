@@ -1,9 +1,10 @@
-@include('layouts.main')
+@extends('layouts.main')
 
-<div class="alert alert-custom alert-white alert-shadow gutter-b" role="alert">
+@section('content')
+<!-- <div class="alert alert-custom alert-white alert-shadow gutter-b" role="alert">
    <div class="alert-icon">
       <span class="svg-icon svg-icon-primary svg-icon-xl">
-         <!--begin::Svg Icon | path:assets/media/svg/icons/Tools/Compass.svg-->
+
          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                <rect x="0" y="0" width="24" height="24" />
@@ -11,13 +12,13 @@
                <path d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z" fill="#000000" fill-rule="nonzero" />
             </g>
          </svg>
-         <!--end::Svg Icon-->
+
       </span>
    </div>
    <div class="alert-text">
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero asperiores iste itaque non officiis dolorum voluptatum quos aliquid consectetur, porro, debitis eveniet fugiat veritatis et enim corporis, error ullam. Sunt amet et ea dolores numquam, odit saepe, beatae quidem ipsam inventore dolor, cupiditate tempora hic sed provident excepturi delectus recusandae sapiente perferendis labore! Soluta, consequatur totam dolore fugit animi quidem..</p>
    </div>
-</div>
+</div> -->
 
 <div class="card card-custom">
    <div class="card-header flex-wrap border-0 pt-6 pb-0">
@@ -91,7 +92,7 @@
          </div>
          <!--end::Dropdown-->
          <!--begin::Button-->
-         <a href="role/tambah" class="btn btn-light-success btn-sm font-weight-bolder">
+         <a href="role/create" class="btn btn-light-success btn-sm font-weight-bolder">
             <span class="svg-icon svg-icon-succcess svg-icon-2x">
                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -172,37 +173,29 @@
             <th style=" width: 18%;text-align:center;">Aksi</th>
          </thead>
          <tbody>
-            @foreach($roles as $key=>$value)
+            @foreach($roles as $key => $value)
             <tr>
                <td>
-                  <?php
-                  $i = 1;
-                  echo $i++; ?>
+                  {{ ++$i }}
                </td>
                <td>{{ $value->role_nama }}</td>
+               <!-- <td>{{ $value->role_is_active }}</td> -->
                <td>
-                  <a href="javascript:;" class="btn btn-sm btn-warning" title="Edit" onclick="onEdit(this)">
-                     <i class="far fa-edit"></i> Edit
-                  </a>
-                  <a href="javascript:;" class="btn btn-sm btn-danger kt-font-bold kt-font-danger" onclick="onDestroy(this)" title="Hapus">
-                     <span class="far fa-trash-alt"></span> Hapus
-                  </a>
+                  <form action="{{ route('role.destroy',$value->id) }}" method="POST">
+
+                     <a href="{{ route('role.edit',$value->id) }}" class="btn btn-sm btn-warning" title="Edit">
+                        <i class="far fa-edit"></i> Edit
+                     </a>
+
+                     @csrf
+                     @method('DELETE')
+                     <button type="submit" class="btn btn-sm btn-danger kt-font-bold kt-font-danger" title="Hapus">
+                        <span class="far fa-trash-alt"></span> Hapus
+                     </button>
+                  </form>
                </td>
             </tr>
             @endforeach
-
-            <!-- <tr>
-               <td>2.</td>
-               <td>Staff</td>
-               <td>
-                  <a href="javascript:;" class="btn btn-sm btn-warning" title="Edit" onclick="onEdit(this)">
-                     <i class="far fa-edit"></i> Edit
-                  </a>
-                  <a href="javascript:;" class="btn btn-sm btn-danger kt-font-bold kt-font-danger" onclick="onDestroy(this)" title="Hapus">
-                     <span class="far fa-trash-alt"></span> Hapus
-                  </a>
-               </td>
-            </tr> -->
          </tbody>
       </table>
 
@@ -210,4 +203,4 @@
    </div>
 </div>
 
-@include('layouts.footer')
+@endsection
