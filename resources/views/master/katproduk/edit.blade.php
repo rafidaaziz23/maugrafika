@@ -11,17 +11,17 @@
             <a href="#" class="btn btn-sm btn-default"><i class="fas fa-angle-left"></i>Kembali</a>
          </div>
       </div>
-      <form action="{{ route('role.update',$role->id) }}" method="POST">
+      <form action="{{ route('kategori-produk.update',$kategoriProduk->id) }}" method="POST">
          @csrf
          @method('PUT')
          <div class="card-body">
             <div class="form-group row">
                <!-- <input type="hidden" name="_method" value="PATCH"> -->
-               <label class="col-3 col-form-label">Nama Role
+               <label class="col-3 col-form-label">Nama Kategori
                   <span class="text-danger">*</span>
                </label>
                <div class="col-6">
-                  <input type="text" name="role_nama" id="role_nama" class="form-control" value="{{ $role->role_nama }}" placeholder="Masukkan Nama" autocomplete="off"/>
+                  <input type="text" name="kategori_produk_nama" id="kategori_produk_nama" class="form-control" value="{{ $kategoriProduk->kategori_produk_nama }}" placeholder="Masukkan Kategori" autocomplete="off"/>
                </div>
             </div>
             <div class="form-group row">
@@ -29,7 +29,7 @@
                <div class="col-3">
                   <span class="switch switch-success">
                      <label>
-                        <input type="checkbox" checked="checked" name="role_is_active" value="{{ $role->role_is_active }}" />
+                        <input type="checkbox" checked="checked" name="kategori_produk_is_active" value="{{ $kategoriProduk->kategori_produk_is_active }}" />
                         <span></span>
                      </label>
                   </span>

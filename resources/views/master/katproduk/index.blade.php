@@ -23,7 +23,7 @@
 <div class="card card-custom">
    <div class="card-header flex-wrap border-0 pt-6 pb-0">
       <div class="card-title">
-         <h3 class="card-label">Table Role
+         <h3 class="card-label">Table Kategori Jasa
       </div>
       <div class="card-toolbar">
          <!--begin::Dropdown-->
@@ -92,7 +92,7 @@
          </div>
          <!--end::Dropdown-->
          <!--begin::Button-->
-         <a href="{{ route('role.create') }}" class="btn btn-light-success btn-sm font-weight-bolder">
+         <a href="{{ route('kategori-produk.create') }}" class="btn btn-light-success btn-sm font-weight-bolder">
             <span class="svg-icon svg-icon-succcess svg-icon-2x">
                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -167,21 +167,20 @@
       <table class="table">
          <thead class="thead-dark">
             <th style="width: 5%;text-align:center;">No.</th>
-            <th style="text-align:center;">Nama Role</th>
+            <th style="text-align:center;">Nama Kategori</th>
             <th style=" width: 18%;text-align:center;">Aksi</th>
          </thead>
          <tbody>
-            @foreach($roles as $key => $value)
+            @foreach($kategoriProduk as $key => $value)
             <tr>
                <td>
                   {{ ++$i }}
                </td>
-               <td>{{ $value->role_nama }}</td>
-               <!-- <td>{{ $value->role_is_active }}</td> -->
+               <td>{{ $value->kategori_produk_nama }}</td>
                <td>
-                  <form action="{{ route('role.destroy',$value->id) }}" method="POST">
+                  <form action="{{ route('kategori-produk.destroy',$value->id) }}" method="POST">
 
-                     <a href="{{ route('role.edit',$value->id) }}" class="btn btn-sm btn-warning" title="Edit">
+                     <a href="{{ route('kategori-produk.edit',$value->id) }}" class="btn btn-sm btn-warning" title="Edit">
                         <i class="far fa-edit"></i> Edit
                      </a>
 

@@ -19,7 +19,7 @@
                   <span class="text-danger">*</span>
                </label>
                <div class="col-6">
-                  <input type="text" name="role_nama" id="role_nama" class="form-control" placeholder="Masukkan Nama" />
+                  <input type="text" name="role_nama" id="role_nama" class="form-control" placeholder="Masukkan Nama" autocomplete="off" />
                </div>
             </div>
             <div class="form-group row">

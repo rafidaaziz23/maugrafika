@@ -40,6 +40,24 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
+         <li class="menu-item menu-item-submenu " aria-haspopup="true" data-menu-toggle="hover">
+            <a href="/kategori-produk" class="menu-link menu-toggle">
+               <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+               </i>
+               <span class="menu-text">Kategori Produk</span>
+               <i class="menu-arrow"></i>
+            </a>
+         </li>
+         <li class="menu-item menu-item-submenu " aria-haspopup="true" data-menu-toggle="hover">
+            <a href="{{ route('kategori-jasa.index') }}" class="menu-link menu-toggle">
+               <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+               </i>
+               <span class="menu-text">Kategori Jasa</span>
+               <i class="menu-arrow"></i>
+            </a>
+         </li>
       </ul>
    </div>
 </li>

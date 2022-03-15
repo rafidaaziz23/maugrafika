@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RoleController;
 use App\Models\Role;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\KategoriJasaController;
+use App\Http\Controllers\KategoriProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,41 +19,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/main', function () {
-//     return view('layouts.main');
-// });
-
-
-// Route::get('/role', function () {
-//     return view('role', [
-//         "page" => "role"
-//     ]);
-// });
 
 // Routes Roles 
 // Route::get('/role', [RoleController::class, 'index'])->middleware('auth');
 Route::resource('role', RoleController::class)->middleware('auth');
-// Route::get('/role/tambah', [RoleController::class, 'create']);
-// Route::post('/role', [RoleController::class, 'store'])->name('postRole');
-// Route::post('/role/store', [RoleController::class, 'store']);
-// Route::get('/role/{{$role}}/edit', function (Role $role) {
-//     return view('master.role/update');
-// });
-// Route::resource('/')
+Route::resource('user', UserController::class)->middleware('auth');
+Route::resource('kategori-jasa', KategoriJasaController::class)->middleware('auth');
+Route::resource('kategori-produk', KategoriProdukController::class)->middleware('auth');
+
 
 Route::get('/master', function () {
     return view('master');
 });
 
-Route::get('/user', function () {
-    return view('master.user.user', [
-        "page" => "user"
-    ]);
-});
+// Route::get('/user', function () {
+//     return view('master.user.user');
+// });
 
 Route::get('/login', [LoginController::class, 'view'])->name('login');
 
@@ -65,8 +49,4 @@ Route::post('/login/auth', [LoginController::class, 'storeLogin'])->name('postLo
 
 Route::get('/home', function () {
     return view('portal.home.home');
-});
-
-Route::get('/coba', function () {
-    return view('coba');
 });

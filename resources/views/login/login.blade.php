@@ -47,7 +47,7 @@ License: You must have a valid license purchased only from themeforest(the above
    <div class="d-flex flex-column flex-root">
       <!--begin::Login-->
       <div class="login login-6 login-signin-on login-signin-on d-flex flex-column-fluid" id="kt_login">
-         <div class="d-flex flex-column flex-lg-row flex-row-fluid text-center" style="background-image: url(assets/media/bg/bg-2.jpg);">
+         <div class="d-flex flex-column flex-lg-row flex-row-fluid text-center" style="background-image: url(assets/media/bg/bg-3.jpg);">
             <!--begin:Aside-->
             <div class="d-flex w-100 flex-center p-15">
                <div class="login-wrapper">

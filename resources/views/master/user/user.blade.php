@@ -74,7 +74,7 @@
          </div>
          <!--end::Dropdown-->
          <!--begin::Button-->
-         <a href="#" class="btn btn-light-success btn-sm font-weight-bolder">
+         <a href="{{ route('user.create') }}" class="btn btn-light-success btn-sm font-weight-bolder">
             <span class="svg-icon svg-icon-succcess svg-icon-2x">
                <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                   <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -88,10 +88,9 @@
          <!--end::Button-->
       </div>
    </div>
+
    <div class="card-body">
-      <!--begin: Search Form-->
-      <!--begin::Search Form-->
-      <div class="mb-7">
+<div class="mb-7">
          <div class="row align-items-center">
             <div class="col-lg-9 col-xl-8">
                <div class="row align-items-center">
@@ -145,40 +144,42 @@
             </div>
          </div>
       </div>
-      <!--end::Search Form-->
-      <!--end: Search Form-->
       <!--begin: Datatable-->
       <table class="table">
          <thead class="thead-dark">
             <th style="width: 5%;text-align:center;">No.</th>
-            <th style="text-align:center;">Nama Role</th>
+            <th style="text-align:center;">Username</th>
+            <th style="text-align:center;">Nama</th>
+            <th style="text-align:center;">Role</th>
+            <th style="text-align:center;">Email</th>
             <th style=" width: 18%;text-align:center;">Aksi</th>
          </thead>
          <tbody>
+            @foreach($users as $key => $value)
             <tr>
-               <td>1.</td>
-               <td>Admin</td>
                <td>
-                  <a href="javascript:;" class="btn btn-sm btn-warning" title="Edit" onclick="onEdit(this)">
-                     <i class="far fa-edit"></i> Edit
-                  </a>
-                  <a href="javascript:;" class="btn btn-sm btn-danger kt-font-bold kt-font-danger" onclick="onDestroy(this)" title="Hapus">
-                     <span class="far fa-trash-alt"></span> Hapus
-                  </a>
+                  {{ ++$i }}
+               </td>
+               <td>{{ $value->user_username}}</td>
+               <td>{{ $value->user_name}}</td>
+               <td>{{ $value->user_role_id}}</td>
+               <td>{{ $value->user_email}}</td>
+               <td>
+                  <form action="{{ route('role.destroy',$value->id) }}" method="POST">
+
+                     <a href="{{ route('role.edit',$value->id) }}" class="btn btn-sm btn-warning" title="Edit">
+                        <i class="far fa-edit"></i> Edit
+                     </a>
+
+                     @csrf
+                     @method('DELETE')
+                     <button type="submit" class="btn btn-sm btn-danger kt-font-bold kt-font-danger" title="Hapus">
+                        <span class="far fa-trash-alt"></span> Hapus
+                     </button>
+                  </form>
                </td>
             </tr>
-            <tr>
-               <td>2.</td>
-               <td>Staff</td>
-               <td>
-                  <a href="javascript:;" class="btn btn-sm btn-warning" title="Edit" onclick="onEdit(this)">
-                     <i class="far fa-edit"></i> Edit
-                  </a>
-                  <a href="javascript:;" class="btn btn-sm btn-danger kt-font-bold kt-font-danger" onclick="onDestroy(this)" title="Hapus">
-                     <span class="far fa-trash-alt"></span> Hapus
-                  </a>
-               </td>
-            </tr>
+            @endforeach
          </tbody>
       </table>
 
