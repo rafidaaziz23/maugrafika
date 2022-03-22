@@ -745,7 +745,7 @@ License: You must have a valid license purchased only from themeforest(the above
                   <!--begin::Container-->
                   <div class="container">
 
-                     @yield('content');
+                     @yield('content')
 
                   </div>
                   <!--end::Container-->

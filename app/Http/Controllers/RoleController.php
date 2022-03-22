@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
 
@@ -41,14 +42,13 @@ class RoleController extends Controller
      * @param  \App\Http\Requests\StoreRoleRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRoleRequest  $request)
+    public function store(Request  $request)
     {
         // $request->validate([
         //     'role_nama' => 'required',
-        //     'role_is_active' => 'required',
-        //     'created_at' => 'required',
-        //     'updated_at' => 'required',
+        //     // 'role_is_active' => 'nullable',
         // ]);
+
 
         // Role::create($request->all());
 

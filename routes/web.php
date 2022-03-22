@@ -24,16 +24,12 @@ use App\Http\Controllers\KategoriProdukController;
 // Route::get('/role', [RoleController::class, 'index'])->middleware('auth');
 Route::resource('role', RoleController::class)->middleware('auth');
 Route::resource('user', UserController::class)->middleware('auth');
-Route::resource('kategori-jasa', KategoriJasaController::class)->middleware('auth');
-Route::resource('kategori-produk', KategoriProdukController::class)->middleware('auth');
+Route::resource('kategori-jasa', KategoriJasaController::class);
+Route::resource('kategori-produk', KategoriProdukController::class);
 
-
-Route::get('/master', function () {
-    return view('master');
-});
 
 // Route::get('/user', function () {
-//     return view('master.user.user');
+//     return view('master.user.user')
 // });
 
 Route::get('/login', [LoginController::class, 'view'])->name('login');

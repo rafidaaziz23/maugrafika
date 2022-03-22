@@ -148,6 +148,7 @@
       <table class="table">
          <thead class="thead-dark">
             <th style="width: 5%;text-align:center;">No.</th>
+            <th style="text-align:center;">Photo</th>
             <th style="text-align:center;">Username</th>
             <th style="text-align:center;">Nama</th>
             <th style="text-align:center;">Role</th>
@@ -160,14 +161,20 @@
                <td>
                   {{ ++$i }}
                </td>
+               <td>
+                  <span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
+                     <img src="{{ Storage::url('public/uploads/users/').$value->user_photo }}" alt="{{ $value->user_username}}">
+                     {{-- <img src="storage/public/uploads/users/{{$value->user_photo }}" alt=""> --}}
+                  </span>
+               </td>
                <td>{{ $value->user_username}}</td>
                <td>{{ $value->user_name}}</td>
                <td>{{ $value->user_role_id}}</td>
                <td>{{ $value->user_email}}</td>
                <td>
-                  <form action="{{ route('role.destroy',$value->id) }}" method="POST">
+                  <form action="{{ route('user.destroy',$value->id) }}" method="POST">
 
-                     <a href="{{ route('role.edit',$value->id) }}" class="btn btn-sm btn-warning" title="Edit">
+                     <a href="{{ route('user.edit',$value->id) }}" class="btn btn-sm btn-warning" title="Edit">
                         <i class="far fa-edit"></i> Edit
                      </a>
 

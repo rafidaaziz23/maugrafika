@@ -11,7 +11,7 @@
             <a href="{{ route('user.index') }}" class="btn btn-sm btn-default"><i class="fas fa-angle-left"></i>Kembali</a>
          </div>
       </div>
-      <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('user.store') }}" method="POST">
          @csrf
          <div class="card-body">
             <div class="row">
@@ -29,7 +29,7 @@
                         <span class="text-danger">*</span>
                      </label>
                      <div class="col-md-9">
-                        <select class="form-control selectpicker" title="-- Pilih --" name="user_role_id">
+                        <select class="form-control selectpicker" title="-- Pilih --">
                            <option>Admin</option>
                            <option>Staff</option>
                            <option>Manager</option>
@@ -67,7 +67,7 @@
                </div>
                <div class="col-md-6">
                   <div class="form-group row">
-                     <label class="col-md-3 col-form-label">Email
+                     <label class="col-md-3 col-form-label">Nama Email
                         <span class="text-danger">*</span>
                      </label>
                      <div class="col-md-9">
@@ -79,7 +79,7 @@
                         <span class="text-danger">*</span>
                      </label>
                      <div class="col-md-9">
-                        <input type="text" name="user_username" id="user_username" class="form-control" placeholder="Masukkan Username" autocomplete="off" />
+                        <input type="text" name="user_name" id="user_name" class="form-control" placeholder="Masukkan Username" autocomplete="off" />
                      </div>
                   </div>
                   <div class="form-group row">
@@ -87,18 +87,10 @@
                         <span class="text-danger">*</span>
                      </label>
                      <div class="col-md-9">
-                        <input type="password" name="user_password" id="user_password" class="form-control" placeholder="Masukkan Password" autocomplete="off" />
+                        <input type="password" name="user_name" id="user_name" class="form-control" placeholder="Masukkan Password" autocomplete="off" />
                      </div>
                   </div>
                   <div class="form-group row">
-                     <label class="col-md-3 col-form-label">Foto
-                        <span class="text-danger">*</span>
-                     </label>
-                     <div class="col-md-9">
-                        <input class="form-control form-control-sm" id="user_photo" name="user_photo" type="file">
-                     </div>
-                  </div>
-                  {{-- <div class="form-group row">
                      <label class="col-3 col-form-label">Foto
                         <span class="text-danger">*</span>
                      </label>
@@ -108,8 +100,8 @@
 
                         <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                         <i class="fa fa-pen icon-sm text-muted"></i>
-                        <input type="file" name="user_photo" accept=".png, .jpg, .jpeg"/>
-                        <input type="hidden" name="user_photo_remove"/>
+                        <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg"/>
+                        <input type="hidden" name="profile_avatar_remove"/>
                         </label>
 
                         <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
@@ -121,7 +113,7 @@
                         </span>
                         </div>
                      </div>
-                  </div> --}}
+                  </div>
                </div>
             </div>
          </div>
@@ -132,38 +124,4 @@
       </form>
    </div>
 </div>
-
-{{-- <script>
-   var avatar5 = new KTImageInput('kt_image_5');
-
-avatar5.on('cancel', function(imageInput) {
- swal.fire({
-  title: 'Image successfully changed !',
-  type: 'success',
-  buttonsStyling: false,
-  confirmButtonText: 'Awesome!',
-  confirmButtonClass: 'btn btn-primary font-weight-bold'
- });
-});
-
-avatar5.on('change', function(imageInput) {
- swal.fire({
-  title: 'Image successfully changed !',
-  type: 'success',
-  buttonsStyling: false,
-  confirmButtonText: 'Awesome!',
-  confirmButtonClass: 'btn btn-primary font-weight-bold'
- });
-});
-
-avatar5.on('remove', function(imageInput) {
- swal.fire({
-  title: 'Image successfully removed !',
-  type: 'error',
-  buttonsStyling: false,
-  confirmButtonText: 'Got it!',
-  confirmButtonClass: 'btn btn-primary font-weight-bold'
- });
-});
-</script> --}}
 @endsection
