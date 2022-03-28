@@ -90,15 +90,15 @@
                         <input type="password" name="user_password" id="user_password" class="form-control" placeholder="Masukkan Password" autocomplete="off" />
                      </div>
                   </div>
-                  <div class="form-group row">
+                  {{-- <div class="form-group row">
                      <label class="col-md-3 col-form-label">Foto
                         <span class="text-danger">*</span>
                      </label>
                      <div class="col-md-9">
                         <input class="form-control form-control-sm" id="user_photo" name="user_photo" type="file">
                      </div>
-                  </div>
-                  {{-- <div class="form-group row">
+                  </div> --}}
+                  <div class="form-group row">
                      <label class="col-3 col-form-label">Foto
                         <span class="text-danger">*</span>
                      </label>
@@ -121,7 +121,7 @@
                         </span>
                         </div>
                      </div>
-                  </div> --}}
+                  </div>
                </div>
             </div>
          </div>

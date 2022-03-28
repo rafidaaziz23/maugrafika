@@ -23,7 +23,7 @@ use App\Http\Controllers\KategoriProdukController;
 // Routes Roles 
 // Route::get('/role', [RoleController::class, 'index'])->middleware('auth');
 Route::resource('role', RoleController::class)->middleware('auth');
-Route::resource('user', UserController::class)->middleware('auth');
+Route::resource('user', UserController::class);
 Route::resource('kategori-jasa', KategoriJasaController::class);
 Route::resource('kategori-produk', KategoriProdukController::class);
 

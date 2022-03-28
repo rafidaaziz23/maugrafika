@@ -6,17 +6,15 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 // use App\Http\Requests\StoreUserRequest;
-// use Illuminate\Support\Facades\Storage;
-// use Illuminate\Foundation\Validation\ValidatesRequests;
-// use Illuminate\Foundation\Bus\DispatchesJobs;
-// use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
+
 
 class UserController extends Controller
 {
-    // use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    // use Validator;
+
     /**
      * Display a listing of the resource.
      *
@@ -117,9 +115,55 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $user)
     {
-        //
+        // Validator Form
+        $validator = Validator::make($request->all(), [
+            'user_photo'     => 'required|file|image|mimes:jpeg,png,jpg,svg|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('user.create')
+            ->with('failed', 'User Update Not Success');
+        }
+
+        $users = User::find($user);
+
+        //check if image is uploaded
+        if ($request->hasFile('user_photo')){
+            
+             //upload new image
+            $file = $request->file('user_photo');
+            $file_name = $file->hashName();
+            $file_path = storage_path('app/public/uploads/users');
+            $file->move($file_path, $file_name);
+
+            //delete old image
+            Storage::delete('public/uploads/users/'.$file_name);
+
+            //Update user
+            $users->update([
+                'user_photo'     => $file_name,
+                'user_name' => $request['user_name'],
+                'user_username' => $request['user_username'],
+                'user_telp' => $request['user_telp'],
+                'user_alamat' => $request['user_alamat'],
+            ]);
+
+        }else{
+
+            //Update user
+             $users->update([
+                'user_name' => $request['user_name'],
+                'user_username' => $request['user_username'],
+                'user_telp' => $request['user_telp'],
+                'user_alamat' => $request['user_alamat'],
+            ]);
+
+        }
+
+         return redirect()->route('user.index')
+                ->with('success', 'User Created successfully');
     }
 
     /**
@@ -128,8 +172,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        //delete image
+        Storage::delete('public/uploads/users/'. $user->user_photo);
+
+        //delete post
+        $user->delete();
+
+        //redirect to index
+        return redirect()->route('user.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
