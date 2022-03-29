@@ -162,6 +162,7 @@ class UserController extends Controller
 
         }
 
+        //  return to redirect
          return redirect()->route('user.index')
                 ->with('success', 'User Created successfully');
     }
