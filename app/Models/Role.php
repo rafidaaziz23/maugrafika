@@ -21,4 +21,8 @@ class Role extends Model
     // protected $primarykey = [
     //     'id'
     // ];
+
+    public function users(){
+        return $this->hasMany('App/Models/User', 'user_role_id');
+    }
 }
