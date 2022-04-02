@@ -58,6 +58,24 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
+         <li class="menu-item menu-item-submenu " aria-haspopup="true" data-menu-toggle="hover">
+            <a href="{{ route('sosmed.index') }}" class="menu-link menu-toggle">
+               <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+               </i>
+               <span class="menu-text">Sosial Media</span>
+               <i class="menu-arrow"></i>
+            </a>
+         </li>
+         <li class="menu-item menu-item-submenu " aria-haspopup="true" data-menu-toggle="hover">
+            <a href="{{ route('faq.index') }}" class="menu-link menu-toggle">
+               <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+               </i>
+               <span class="menu-text">FAQ</span>
+               <i class="menu-arrow"></i>
+            </a>
+         </li>
       </ul>
    </div>
 </li>
