@@ -30,10 +30,9 @@
                      </label>
                      <div class="col-md-9">
                         <select class="form-control selectpicker" title="-- Pilih --" name="user_role_id">
-                           <option>Admin</option>
-                           <option>Staff</option>
-                           <option>Manager</option>
-                           <option>Customer</option>
+                           @foreach ( $roles as $value )
+                               <option value="{{ $value->id }}">{{ $value->role_nama }}</option>
+                           @endforeach
                         </select>
                      </div>
                   </div>

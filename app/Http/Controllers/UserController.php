@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -22,8 +23,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->get();
-
+        $users = User::with('roles')->latest()->get();
+        // dd($users);
+        
         return view('master.user.user', compact('users'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -36,8 +38,10 @@ class UserController extends Controller
     public function create()
     {
         $users = new User;
+        $roles = Role::all();
         return view('master.user.form', compact(
-            'users'
+            'users',
+            'roles'
         ));
     }
 
@@ -57,6 +61,7 @@ class UserController extends Controller
             'user_password'   => 'required',
             'user_telp'   => 'required|min:11',
             'user_alamat'   => 'required',
+            'user_role_id'   => 'required',
         ]);
         
         if ($validator->fails()) {
@@ -79,6 +84,7 @@ class UserController extends Controller
             'user_password' => Hash::make($request['user_password']),
             'user_telp' => $request['user_telp'],
             'user_alamat' => $request['user_alamat'],
+            'user_role_id' => $request['user_role_id'],
         ]);
 
         return redirect()->route('user.index')
@@ -105,7 +111,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $users = User::find($user);
-        return view('master.user.edit', compact('user'));
+        $roles = Role::all();
+        return view('master.user.edit', compact('user','roles'));
     }
 
     /**
@@ -148,16 +155,17 @@ class UserController extends Controller
                 'user_username' => $request['user_username'],
                 'user_telp' => $request['user_telp'],
                 'user_alamat' => $request['user_alamat'],
+                'user_role_id' => $request['user_role_id'],
             ]);
 
         }else{
-
             //Update user
              $users->update([
                 'user_name' => $request['user_name'],
                 'user_username' => $request['user_username'],
                 'user_telp' => $request['user_telp'],
                 'user_alamat' => $request['user_alamat'],
+                'user_role_id' => $request['user_role_id'],
             ]);
 
         }

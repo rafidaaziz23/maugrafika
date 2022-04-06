@@ -156,6 +156,7 @@
             <th style=" width: 18%;text-align:center;">Aksi</th>
          </thead>
          <tbody>
+
             @foreach($users as $key => $value)
             <tr>
                <td>
@@ -169,7 +170,7 @@
                </td>
                <td>{{ $value->user_username}}</td>
                <td>{{ $value->user_name}}</td>
-               <td>{{ $value->user_role_id}}</td>
+               <td>{{ optional($value->roles)->role_nama }}</td>
                <td>{{ $value->user_email}}</td>
                <td>
                   <form action="{{ route('user.destroy',$value->id) }}" method="POST">
