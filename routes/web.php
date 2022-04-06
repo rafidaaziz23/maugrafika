@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\FaqController;
 use App\Models\Role;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KategoriJasaController;
 use App\Http\Controllers\KategoriProdukController;
+use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\SosmedController;
 
 /*
@@ -30,6 +33,9 @@ Route::resource('kategori-jasa', KategoriJasaController::class);
 Route::resource('kategori-produk', KategoriProdukController::class);
 Route::resource('sosmed', SosmedController::class);
 Route::resource('faq', FaqController::class);
+Route::resource('about', AboutController::class);
+Route::resource('sejarah', SejarahController::class);
+Route::resource('carousel', CarouselController::class);
 
 // Route::get('/user', function () {
 //     return view('master.user.user');

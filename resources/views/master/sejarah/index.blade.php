@@ -23,7 +23,7 @@
 <div class="card card-custom">
     <div class="card-header flex-wrap border-0 pt-6 pb-0">
         <div class="card-title">
-            <h3 class="card-label">Table Sosial Media
+            <h3 class="card-label">Table Sejarah
         </div>
         <div class="card-toolbar">
             <!--begin::Dropdown-->
@@ -92,7 +92,7 @@
             </div>
             <!--end::Dropdown-->
             <!--begin::Button-->
-            <a href="{{ route('sosmed.create') }}" class="btn btn-light-success btn-sm font-weight-bolder">
+            <a href="{{ route('sejarah.create') }}" class="btn btn-light-success btn-sm font-weight-bolder">
                 <span class="svg-icon svg-icon-succcess svg-icon-2x">
                     <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -167,25 +167,24 @@
         <table class="table">
             <thead class="thead-dark">
                 <th style="width: 5%;text-align:center;">No.</th>
-                <th style="text-align:center;">Nama Sosmed</th>
-                <th style="text-align:center;">Link Sosmed</th>
-                <th style="text-align:center;">Icon Sosmed</th>
+                <th style="text-align:center;">Judul Sejarah</th>
+                <th style="text-align:center;">Detail Sejarah</th>
+                <th style="text-align:center;">GambarSejarah</th>
                 <th style=" width: 18%;text-align:center;">Aksi</th>
             </thead>
             <tbody>
-                @foreach($sosmed as $key => $value)
+                @foreach($sejarah as $key => $value)
                 <tr>
                     <td>
                         {{ ++$i }}
                     </td>
-                    <td>{{ $value->sosmed_nama }}</td>
-                    <td>{{ $value->sosmed_link }}</td>
-                    {{-- <td><img src="app/public/uploads/sosmed/{{ $value->sosmed_icon }}" alt=""></td> --}}
-                    <td><img style="width: 100px; height:100px;" src="{{ Storage::url('public/uploads/sosmed/').$value->sosmed_icon }}" alt="{{ $value->sosmed_icon}}"></td>
+                    <td>{{ $value->sejarah_judul }}</td>
+                    <td>{{ $value->sejarah_detail }}</td>
+                    <td><img style="width: 100px; height:100px;" src="{{ Storage::url('public/uploads/sosmed/').$value->sejarah_image }}" alt="{{ $value->sejarah_image}}"></td>
                     <td>
-                        <form action="{{ route('sosmed.destroy',$value->id) }}" method="POST">
+                        <form action="{{ route('sejarah.destroy',$value->id) }}" method="POST">
 
-                            <a href="{{ route('sosmed.edit',$value->id) }}" class="btn btn-sm btn-warning" title="Edit">
+                            <a href="{{ route('sejarah.edit',$value->id) }}" class="btn btn-sm btn-warning" title="Edit">
                                 <i class="far fa-edit"></i> Edit
                             </a>
 

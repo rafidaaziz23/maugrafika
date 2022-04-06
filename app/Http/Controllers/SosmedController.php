@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sosmed;
-
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+
 
 class SosmedController extends Controller
 {
@@ -42,11 +46,27 @@ class SosmedController extends Controller
      */
     public function store(Request $request)
     {
-        $sosmed = new Sosmed;
-        $sosmed->sosmed_nama = $request->sosmed_nama;
-        $sosmed->sosmed_link = $request->sosmed_link;
-        $sosmed->sosmed_icon = $request->sosmed_icon;
-        $sosmed->save();
+        $validator = Validator::make($request->all(),[
+            'sosmed_nama' => 'required',
+            'sosmed_link' => 'required',
+            'sosmed_icon' => 'required|file|image|mimes:jpeg,png,jpg,svg|max:2048',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->route('sosmed.create')
+            ->with('failed', 'User Create Not Success');
+        }
+         // upload image
+        $file = $request->file('sosmed_icon');
+        $file_name = $file->hashName();
+        $file_path = storage_path('app/public/uploads/sosmed');
+        $file->move($file_path, $file_name);
+
+       //create user
+        Sosmed::create([
+            'sosmed_nama' => $request['sosmed_nama'],
+            'sosmed_link' => $request['sosmed_link'],
+            'sosmed_icon' => $file_name
+        ]);
 
         return redirect()->route('sosmed.index')
             ->with('success', 'Sosmed Created successfully');
@@ -81,13 +101,37 @@ class SosmedController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sosmed $sosmed)
+    public function update(Request $request, $sosmed)
     {
-        Sosmed::where('id', $sosmed->id)->update([
-            'sosmed_nama' => $request->sosmed_nama,
-            'sosmed_link' => $request->sosmed_link,
-            'sosmed_icon' => $request->sosmed_icon
-        ]);
+       $validator = Validator::make($request->all(),[
+            'sosmed_icon' => 'required|file|image|mimes:jpeg,png,jpg,svg|max:2048'
+       ]);
+       if ($validator->fails()) {
+            return redirect()->route('sosmed.create')
+            ->with('failed', 'User Update Not Success');
+        }
+
+        $sosmeds = Sosmed::find($sosmed);
+        if ($request->hasFile('sosmed_icon')) {
+            $file = $request->file('sosmed_icon');
+            $file_name = $file->hashName();
+            $file_path = storage_path('app/public/uploads/sosmed');
+            $file->move($file_path,$file_name);
+
+            Storage::delete('public/uploads/sosmed/'.$file_name);
+
+            $sosmeds->update([
+                'sosmed_nama' => $request['sosmed_nama'],
+                'sosmed_link' => $request['sosmed_link'],
+                'sosmed_icon' => $file_name
+            ]);
+
+        }else {
+            $sosmeds->update([
+                'sosmed_nama' => $request['sosmed_nama'],
+                'sosmed_link' => $request['sosmed_link']
+            ]);
+        }
 
         return redirect()->route('sosmed.index')
             ->with('success', 'Sosmed updated successfully');

@@ -5,43 +5,34 @@
    <div class="card card-custom">
       <div class="card-header flex-wrap border-0 pt-6 pb-0">
          <div class="card-title">
-            <h3 class="card-label">Form Role
+            <h3 class="card-label">Form Carousel
          </div>
          <div class="card-toolbar">
             <a href="#" class="btn btn-sm btn-default"><i class="fas fa-angle-left"></i>Kembali</a>
          </div>
       </div>
-      <form action="{{ route('sosmed.update',$sosmed->id) }}" method="POST">
+      <form action="{{ route('carousel.store') }}" method="POST">
          @csrf
-         @method('PUT')
          <div class="card-body">
             <div class="form-group row">
-               <label class="col-3 col-form-label">Nama Sosmed
+               <label class="col-3 col-form-label">Nama Carousel
                   <span class="text-danger">*</span>
                </label>
                <div class="col-6">
-                  <input type="text" name="sosmed_nama" id="sosmed_nama" class="form-control" value="{{ $sosmed->sosmed_nama }}" placeholder="Masukkan Sosmed" autocomplete="off"/>
+                  <input type="text" name="carousel_nama" id="carousel_nama" class="form-control" placeholder="Masukkan Nama" autocomplete="off" />
                </div>
             </div>
-               <div class="form-group row">
-                <label class="col-3 col-form-label">Link Sosmed
-                    <span class="text-danger">*</span>
-                </label>
-                <div class="col-6">
-                    <input type="text" name="sosmed_link" id="sosmed_link" class="form-control" value="{{ $sosmed->sosmed_link }}" placeholder="Masukkan Link" autocomplete="off"/>
-                    </div>
-               </div>
-               <div class="form-group row">
-               <label class="col-3 col-form-label">Icon Sosmed
+            <div class="form-group row">
+               <label class="col-3 col-form-label">Gambar Carousel
                   <span class="text-danger">*</span>
                </label>
                <div class="col-9">
-                        <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url(storage/uploads/users/{{ $sosmed->sosmed_icon }})">
+                        <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url(assets/media/users/blank.png)">
                         <div class="image-input-wrapper"></div>
 
                         <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                         <i class="fa fa-pen icon-sm text-muted"></i>
-                        <input type="file" name="sosmed_icon" accept=".png, .jpg, .jpeg"/>
+                        <input type="file" name="carousel_image" accept=".png, .jpg, .jpeg"/>
                         <input type="hidden" name="user_photo_remove"/>
                         </label>
 
@@ -55,12 +46,13 @@
                         </div>
                      </div>
             </div>
+            </div>
             <div class="form-group row">
                <label class="col-3 col-form-label">Status</label>
                <div class="col-3">
                   <span class="switch switch-success">
                      <label>
-                        <input type="checkbox" checked="checked" name="kategori_jasa_is_active" value="{{ $sosmed->kategori_jasa_is_active }}" />
+                        <input type="checkbox" checked="checked" name="kategori_jasa_is_active" />
                         <span></span>
                      </label>
                   </span>
@@ -73,5 +65,4 @@
       </form>
    </div>
 </div>
-
 @endsection

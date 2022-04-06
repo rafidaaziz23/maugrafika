@@ -5,13 +5,13 @@
    <div class="card card-custom">
       <div class="card-header flex-wrap border-0 pt-6 pb-0">
          <div class="card-title">
-            <h3 class="card-label">Form kategoriJasa
+            <h3 class="card-label">Form Sosial Media
          </div>
          <div class="card-toolbar">
             <a href="#" class="btn btn-sm btn-default"><i class="fas fa-angle-left"></i>Kembali</a>
          </div>
       </div>
-      <form action="{{ route('sosmed.store') }}" method="POST">
+      <form action="{{ route('sosmed.store') }}" method="POST" enctype="multipart/form-data">
          @csrf
          <div class="card-body">
             <div class="form-group row">
@@ -34,9 +34,25 @@
                <label class="col-3 col-form-label">Icon Sosmed
                   <span class="text-danger">*</span>
                </label>
-               <div class="col-6">
-                  <input type="text" name="sosmed_icon" id="sosmed_icon" class="form-control" placeholder="Masukkan Icon" autocomplete="off" />
-               </div>
+               <div class="col-9">
+                        <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url(assets/media/users/blank.png)">
+                        <div class="image-input-wrapper"></div>
+
+                        <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                        <i class="fa fa-pen icon-sm text-muted"></i>
+                        <input type="file" name="sosmed_icon" accept=".png, .jpg, .jpeg"/>
+                        <input type="hidden" name="user_photo_remove"/>
+                        </label>
+
+                        <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                        <i class="ki ki-bold-close icon-xs text-muted"></i>
+                        </span>
+
+                        <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+                        <i class="ki ki-bold-close icon-xs text-muted"></i>
+                        </span>
+                        </div>
+                     </div>
             </div>
             <div class="form-group row">
                <label class="col-3 col-form-label">Status</label>

@@ -76,6 +76,33 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
+         <li class="menu-item menu-item-submenu " aria-haspopup="true" data-menu-toggle="hover">
+            <a href="{{ route('about.index') }}" class="menu-link menu-toggle">
+               <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+               </i>
+               <span class="menu-text">About</span>
+               <i class="menu-arrow"></i>
+            </a>
+         </li>
+         <li class="menu-item menu-item-submenu " aria-haspopup="true" data-menu-toggle="hover">
+            <a href="{{ route('sejarah.index') }}" class="menu-link menu-toggle">
+               <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+               </i>
+               <span class="menu-text">Sejarah</span>
+               <i class="menu-arrow"></i>
+            </a>
+         </li>
+         <li class="menu-item menu-item-submenu " aria-haspopup="true" data-menu-toggle="hover">
+            <a href="{{ route('carousel.index') }}" class="menu-link menu-toggle">
+               <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+               </i>
+               <span class="menu-text">Carousel</span>
+               <i class="menu-arrow"></i>
+            </a>
+         </li>
       </ul>
    </div>
 </li>
