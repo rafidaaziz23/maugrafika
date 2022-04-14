@@ -103,22 +103,24 @@ class SosmedController extends Controller
      */
     public function update(Request $request, $sosmed)
     {
-       $validator = Validator::make($request->all(),[
-            'sosmed_icon' => 'required|file|image|mimes:jpeg,png,jpg,svg|max:2048'
-       ]);
-       if ($validator->fails()) {
-            return redirect()->route('sosmed.create')
-            ->with('failed', 'User Update Not Success');
-        }
+    //    $validator = Validator::make($request->all(),[
+    //         'sosmed_icon' => 'required|file|image|mimes:jpeg,png,jpg,svg|max:2048'
+    //    ]);
+    //    if ($validator->fails()) {
+    //         return redirect()->route('sosmed.create')
+    //         ->with('failed', 'User Update Not Success');
+    //     }
 
         $sosmeds = Sosmed::find($sosmed);
+        
         if ($request->hasFile('sosmed_icon')) {
             $file = $request->file('sosmed_icon');
             $file_name = $file->hashName();
+            Storage::delete('public/uploads/sosmed/'.$request->sosmed_icon); 
             $file_path = storage_path('app/public/uploads/sosmed');
             $file->move($file_path,$file_name);
 
-            Storage::delete('public/uploads/sosmed/'.$file_name);
+            
 
             $sosmeds->update([
                 'sosmed_nama' => $request['sosmed_nama'],

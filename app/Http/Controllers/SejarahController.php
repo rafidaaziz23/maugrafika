@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Sejarah;
 use App\Models\SejarahModel;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Validator as ValidationValidator;
 
 class SejarahController extends Controller
 {
@@ -43,14 +46,31 @@ class SejarahController extends Controller
      */
     public function store(Request $request)
     {
-         $sejarah = new Sejarah;
-        $sejarah->sejarah_judul = $request->sejarah_judul;
-        $sejarah->sejarah_detail = $request->sejarah_detail;
-        $sejarah->sejarah_image = $request->sejarah_image;
-        $sejarah->save();
+        
+        //  $validator =Validator::make($request->all(),[
+        //     'sejarah_judul' => 'required',
+        //     'sejarah_link' => 'required',
+        //     'sejarah_image' => 'required|file|image|mimes:jpeg,png,jpg,svg|max:2048',
+        // ]);
+        // dd($request->all());
+        // if ($validator->fails()) {
+        //     return redirect()->route('sejarah.create')
+        //     ->with('failed', 'User Create Not Success');
+        // }
+         // upload image
+        $file = $request->file('sejarah_image');
+        $file_name = $file->hashName();
+        $file_path = storage_path('app/public/uploads/sejarah');
+        $file->move($file_path, $file_name);
 
+       //create user
+        Sejarah::create([
+            'sejarah_judul' => $request['sejarah_judul'],
+            'sejarah_detail' => $request['sejarah_detail'],
+            'sejarah_image' => $file_name
+        ]);
         return redirect()->route('sejarah.index')
-            ->with('success', 'Sejarah Created successfully');
+            ->with('success', 'Sosmed Created successfully');
     }
 
     /**
@@ -82,13 +102,32 @@ class SejarahController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sejarah $sejarah)
+    public function update(Request $request, $sejarah)
     {
-         Sejarah::where('id', $sejarah->id)->update([
-            'sejarah_judul' => $request->sejarah_judul,
-            'sejarah_detail' => $request->sejarah_detail,
-            'sejarah_image' => $request->sejarah_image
-        ]);
+        $sejarahs = Sejarah::find($sejarah);
+        
+        if ($request->hasFile('sejarah_image')) {
+            $file = $request->file('sejarah_image');
+            $file_name = $file->hashName();
+            Storage::delete('public/uploads/sejarah/'.$request->sejarah_image); 
+            $file_path = storage_path('app/public/uploads/sejarah');
+            $file->move($file_path,$file_name);
+
+            
+
+            $sejarahs->update([
+                'sejarah_judul' => $request['sejarah_judul'],
+                'sejarah_detail' => $request['sejarah_detail'],
+                'sejarah_image' => $file_name
+            ]);
+
+        }else {
+            $sejarahs->update([
+                'sejarah_judul' => $request['sejarah_judul'],
+                'sejarah_detail' => $request['sejarah_detail']
+            ]);
+        }
+
 
         return redirect()->route('sejarah.index')
             ->with('success', 'sejarah updated successfully');

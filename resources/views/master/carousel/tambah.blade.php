@@ -11,7 +11,7 @@
             <a href="#" class="btn btn-sm btn-default"><i class="fas fa-angle-left"></i>Kembali</a>
          </div>
       </div>
-      <form action="{{ route('carousel.store') }}" method="POST">
+      <form action="{{ route('carousel.store') }}" method="POST" enctype="multipart/form-data">
          @csrf
          <div class="card-body">
             <div class="form-group row">

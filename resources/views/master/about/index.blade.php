@@ -178,7 +178,7 @@
                         {{ ++$i }}
                     </td>
                     <td>{{ $value->about_desc }}</td>
-                    <td><img style="width: 100px; height:100px;" src="{{ Storage::url('public/uploads/sosmed/').$value->about_images }}" alt="{{ $value->about_images}}"></td>
+                    <td><img style="width: 100px; height:100px;" src="{{ Storage::url('public/uploads/about/').$value->about_images }}" alt="{{ $value->about_images}}"></td>
                     <td>
                         <form action="{{ route('about.destroy',$value->id) }}" method="POST">
 

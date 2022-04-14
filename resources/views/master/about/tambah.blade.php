@@ -11,7 +11,7 @@
             <a href="#" class="btn btn-sm btn-default"><i class="fas fa-angle-left"></i>Kembali</a>
          </div>
       </div>
-      <form action="{{ route('about.store') }}" method="POST">
+      <form action="{{ route('about.store') }}" method="POST" enctype="multipart/form-data">
          @csrf
          <div class="card-body">
             <div class="form-group row">
@@ -47,7 +47,7 @@
                      </div>
             </div>
             </div>
-            <div class="form-group row">
+            {{-- <div class="form-group row">
                <label class="col-3 col-form-label">Status</label>
                <div class="col-3">
                   <span class="switch switch-success">
@@ -57,7 +57,7 @@
                      </label>
                   </span>
                </div>
-            </div>
+            </div> --}}
             <div class="card-footer p-0 text-right pt-3">
                <button type="reset" class="btn btn-sm btn-light-success font-weight-bold"><i class="fas fa-undo-alt"></i> Batal</button>
                <button type="submit" class="btn btn-sm btn-success font-weight-bold mr-2"><i class="far fa-save"></i> Simpan</button>

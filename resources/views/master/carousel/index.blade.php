@@ -178,7 +178,7 @@
                         {{ ++$i }}
                     </td>
                     <td>{{ $value->carousel_nama }}</td>
-                    <td><img style="width: 100px; height:100px;" src="{{ Storage::url('public/uploads/sosmed/').$value->carousel_image }}" alt="{{ $value->carousel_image}}"></td>
+                    <td><img style="width: 100px; height:100px;" src="{{ Storage::url('public/uploads/carousel/').$value->carousel_image }}" alt="{{ $value->carousel_image}}"></td>
                     <td>
                         <form action="{{ route('carousel.destroy',$value->id) }}" method="POST">
 

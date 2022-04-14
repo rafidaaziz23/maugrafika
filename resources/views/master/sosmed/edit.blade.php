@@ -11,7 +11,7 @@
             <a href="#" class="btn btn-sm btn-default"><i class="fas fa-angle-left"></i>Kembali</a>
          </div>
       </div>
-      <form action="{{ route('sosmed.update',$sosmed->id) }}" method="POST">
+      <form action="{{ route('sosmed.update',$sosmed->id) }}" method="POST"  enctype="multipart/form-data">
          @csrf
          @method('PUT')
          <div class="card-body">
@@ -36,13 +36,13 @@
                   <span class="text-danger">*</span>
                </label>
                <div class="col-9">
-                        <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url(storage/uploads/users/{{ $sosmed->sosmed_icon }})">
+                        <div class="image-input image-input-empty image-input-outline" id="kt_image_5" style="background-image: url(storage/uploads/sosmed/{{ $sosmed->sosmed_icon }})">
                         <div class="image-input-wrapper"></div>
 
                         <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                         <i class="fa fa-pen icon-sm text-muted"></i>
                         <input type="file" name="sosmed_icon" accept=".png, .jpg, .jpeg"/>
-                        <input type="hidden" name="user_photo_remove"/>
+                        {{-- <input type="hidden" name="user_photo_remove"/> --}}
                         </label>
 
                         <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">

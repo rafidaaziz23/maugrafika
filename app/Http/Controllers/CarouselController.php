@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Carousel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CarouselController extends Controller
 {
@@ -41,10 +42,16 @@ class CarouselController extends Controller
      */
     public function store(Request $request)
     {
-         $carousel = new Carousel;
-        $carousel->carousel_nama = $request->carousel_nama;
-        $carousel->carousel_image = $request->carousel_image;
-        $carousel->save();
+        $file = $request->file('carousel_image');
+        $file_name = $file->hashName();
+        $file_path = storage_path('app/public/uploads/carousel');
+        $file->move($file_path, $file_name);
+
+       //create user
+        Carousel::create([
+            'carousel_nama' => $request['carousel_nama'],
+            'carousel_image' => $file_name
+        ]);
 
         return redirect()->route('carousel.index')
             ->with('success', 'Carousel Created successfully');
@@ -79,12 +86,29 @@ class CarouselController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Carousel $carousel)
+    public function update(Request $request,  $carousel)
     {
-         Carousel::where('id', $carousel->id)->update([
-            'carousel_nama' => $request->carousel_nama,
-            'carousel_image' => $request->carousel_image
-        ]);
+        $carousels = Carousel::find($carousel);
+        
+        if ($request->hasFile('carousel_image')) {
+            $file = $request->file('carousel_image');
+            $file_name = $file->hashName();
+            Storage::delete('public/uploads/carousel/'.$request->carousel_image); 
+            $file_path = storage_path('app/public/uploads/carousel');
+            $file->move($file_path,$file_name);
+
+            
+
+            $carousels->update([
+                'carousel_nama' => $request['carousel_nama'],
+                'carousel_image' => $file_name
+            ]);
+
+        }else {
+            $carousels->update([
+                'carousel_nama' => $request['carousel_nama'],
+            ]);
+        }
 
         return redirect()->route('carousel.index')
             ->with('success', 'Carousel updated successfully');

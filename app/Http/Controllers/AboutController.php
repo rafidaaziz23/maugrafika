@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AboutController extends Controller
 {
@@ -41,10 +42,16 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        $about = new About;
-        $about->about_desc = $request->about_desc;
-        $about->about_images = $request->about_images;
-        $about->save();
+        $file = $request->file('about_images');
+        $file_name = $file->hashName();
+        $file_path = storage_path('app/public/uploads/about');
+        $file->move($file_path, $file_name);
+
+       //create user
+        About::create([
+            'about_desc' => $request['about_desc'],
+            'about_images' => $file_name
+        ]);
 
         return redirect()->route('about.index')
             ->with('success', 'About Created successfully');
@@ -79,12 +86,29 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About $about)
+    public function update(Request $request,  $about)
     {
-         About::where('id', $about->id)->update([
-            'about_desc' => $request->about_desc,
-            'about_images' => $request->about_images
-        ]);
+         $abouts = About::find($about);
+        
+        if ($request->hasFile('about_images')) {
+            $file = $request->file('about_images');
+            $file_name = $file->hashName();
+            Storage::delete('public/uploads/about/'.$request->about_images);
+            $file_path = storage_path('app/public/uploads/about');
+            $file->move($file_path,$file_name);
+
+            
+
+            $abouts->update([
+                'about_desc' => $request['about_desc'],
+                'about_images' => $file_name
+            ]);
+
+        }else {
+            $abouts->update([
+                'about_desc' => $request['about_desc']
+            ]);
+        }
 
         return redirect()->route('about.index')
             ->with('success', 'about updated successfully');

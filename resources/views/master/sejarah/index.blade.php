@@ -180,7 +180,7 @@
                     </td>
                     <td>{{ $value->sejarah_judul }}</td>
                     <td>{{ $value->sejarah_detail }}</td>
-                    <td><img style="width: 100px; height:100px;" src="{{ Storage::url('public/uploads/sosmed/').$value->sejarah_image }}" alt="{{ $value->sejarah_image}}"></td>
+                    <td><img style="width: 100px; height:100px;" src="{{ Storage::url('public/uploads/sejarah/').$value->sejarah_image }}" alt="{{ $value->sejarah_image}}"></td>
                     <td>
                         <form action="{{ route('sejarah.destroy',$value->id) }}" method="POST">
 
