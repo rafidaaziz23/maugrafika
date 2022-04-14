@@ -4,6 +4,7 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\KarirController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KategoriJasaController;
 use App\Http\Controllers\KategoriProdukController;
@@ -26,11 +27,13 @@ Route::resource('role', RoleController::class)->middleware('auth');
 Route::resource('user', UserController::class);
 Route::resource('kategori-jasa', KategoriJasaController::class);
 Route::resource('kategori-produk', KategoriProdukController::class);
+Route::resource('karir', KarirController::class);
 
 
-// Route::get('/user', function () {
-//     return view('master.user.user')
-// });
+
+Route::get('/produk', function () {
+    return view('master.produk.index');
+});
 
 Route::get('/login', [LoginController::class, 'view'])->name('login');
 

@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('user_telp')->unique();
             // $table->integer('user_role_id');
             $table->foreignId('user_role_id')->nullable()->index('fk_users_to_roles');
-            $table->string('user_photo');
+            $table->string('user_photo')->nullable();
             $table->boolean('user_is_active')->default(false);
-            $table->text('user_alamat');
+            $table->text('user_alamat')->nullable();
             $table->timestamp('user_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
