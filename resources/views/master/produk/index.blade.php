@@ -45,8 +45,6 @@
                   </svg>
                   <!--end::Svg Icon-->
                </span>Tambah</a>
-         
-            
          </div>
          <!--end::Heading-->
          <!--begin::Products-->

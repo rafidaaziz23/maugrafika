@@ -13,4 +13,8 @@ class kategoriProduk extends Model
         'kategori_produk_nama',
         'kategori_produk_is_active',
     ];
+
+    public function produks(){
+        return $this->hasMany(Produk::class, 'produk_kategori_id');
+    }
 }
