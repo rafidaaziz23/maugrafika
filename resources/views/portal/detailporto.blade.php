@@ -14,7 +14,7 @@
 </style>
     <div>
         <h1 style="text-align: center;margin: 3%;"><u>Sablon GUCCI</u></h1>
-    <div>
+    </div>
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-5">

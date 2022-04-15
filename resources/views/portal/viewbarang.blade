@@ -1,0 +1,62 @@
+@extends('layouts.main')
+@section('body')
+<style>
+    @media(min-width: 992px){
+    p{
+        color: black;
+        font-family: "Poppins" , sans-serif;
+        margin-top: 2%;
+    }
+    .imgpesan{
+        padding: 5% 20% 3% 20%;
+        /* margin-left: auto;
+        margin-right: auto; */
+    }
+    .harga{
+        color: red;
+    }
+    .stock{
+        color: black;
+    }
+    .tambah_keranjang{
+        color: white;
+        width: 100%;
+        height: 4rem;
+        font-family: "Poppins" , sans-serif;
+        font-size: 24px;
+    }
+}
+</style>
+    <div>
+        <h1 style="text-align: center;margin: 3%;"><u>Sablon Kaos</u></h1>
+    </div>
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="wow fadeIn" data-wow-delay="0.1s">
+                        <div class="about-img" style="margin-top: -10%;">
+                            <img class="img-fluid" src="img/product-2.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <h3 class="card-title">Sablon Kaos</h3>
+                        Rp:<b class="harga">25.000</b>
+                        <p class="stock">Stock : 25</p>
+                        <img src="img/icons/rating.png"  alt="">
+                        <img src="img/icons/rating.png"  alt="">
+                        <img src="img/icons/rating.png"  alt="">
+                        <img src="img/icons/rating.png"  alt="">
+                        <img src="img/icons/rating.png"  alt="">
+                        <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <p class="mb-4">Stet no et lorem dolor et diam, amet duo ut dolore vero eos. No stet est diam rebum amet diam ipsum. Clita clita labore, dolor duo nonumy clita sit at, sed sit sanctus dolor eos.</p>
+                        <div class="row">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique excepturi accusantium voluptas quidem iste tempora mollitia doloribus error incidunt, officiis cumque vel, aut libero dolorem sequi soluta ab assumenda ullam fuga molestiae eius dolor? Minima, sed! Aspernatur quisquam laudantium impedit totam cumque! Vel repudiandae veniam similique modi quia amet, iusto ipsa, consectetur obcaecati soluta maiores voluptatem facere molestias iste autem sunt culpa ullam ea </p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            </div>
+        </div>
+        <button class="btn btn-warning tambah_keranjang">Tambah Ke Keranjang</button>
+@endsection
