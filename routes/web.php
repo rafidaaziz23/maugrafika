@@ -10,12 +10,12 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KarirController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\KategoriJasaController;
 use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\MisiController;
 use App\Http\Controllers\PortalController;
 use App\Http\Controllers\PortofolioController;
-use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\SosmedController;
 use App\Http\Controllers\VisiController;
@@ -40,12 +40,13 @@ Route::resource('user', UserController::class);
 Route::resource('kategori-jasa', KategoriJasaController::class);
 Route::resource('kategori-produk', KategoriProdukController::class);
 Route::resource('karir', KarirController::class);
+Route::resource('produk', ProdukController::class);
 Route::resource('about', AboutController::class);
 Route::resource('carousel', CarouselController::class);
 Route::resource('faq', FaqController::class);
 Route::resource('galeri', GaleriController::class);
 Route::resource('misi', MisiController::class);
-Route::resource('portofolio', PortofolioController::class);
+Route::resource('portofolio-admin', PortofolioController::class);
 Route::resource('sejarah', SejarahController::class);
 Route::resource('sosmed', SosmedController::class);
 Route::resource('visi', VisiController::class);
@@ -53,7 +54,6 @@ Route::resource('visi', VisiController::class);
 // route fe 
 Route::resource('portal', PortalController::class);
 Route::get('aboutus', [PortalController::class, 'aboutus']);
-
 
 Route::get('/aboutus', function () {
     return view('portal.aboutus');
@@ -86,6 +86,8 @@ Route::get('/faq', function () {
 Route::get('/storeproduk', function () {
     return view('portal.produkstore');
 });
+
+
 
 Route::get('/login', [LoginController::class, 'view'])->name('login');
 

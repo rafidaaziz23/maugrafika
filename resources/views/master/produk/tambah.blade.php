@@ -5,90 +5,97 @@
    <div class="card card-custom">
       <div class="card-header flex-wrap border-0 pt-6 pb-0">
          <div class="card-title">
-            <h3 class="card-label">Form Karir
+            <h3 class="card-label">Form Produk
          </div>
          <div class="card-toolbar">
-            <a href="{{ route('karir.index') }}" class="btn btn-sm btn-default"><i class="fas fa-angle-left"></i>Kembali</a>
+            <a href="{{ route('produk.index') }}" class="btn btn-sm btn-default"><i class="fas fa-angle-left"></i>Kembali</a>
          </div>
       </div>
-      <form action="{{ route('karir.store') }}" method="POST">
+      <form action="{{ route('produk.store') }}" method="POST" enctype="multipart/form-data">
          @csrf
          <div class="card-body">
             <div class="form-group row">
-               <label class="col-3 col-form-label">Nama Pekerjaan
+               <label class="col-3 col-form-label">Nama Produk
                   <span class="text-danger">*</span>
                </label>
                <div class="col-9">
-                  <input type="text" name="karir_position" id="karir_position" class="form-control" placeholder="Masukkan Nama" autocomplete="off" />
+                  <input type="text" name="produk_nama" id="produk_nama" class="form-control" placeholder="Masukkan Nama" autocomplete="off" />
                </div>
             </div>
             <div class="form-group row">
-               <label class="col-3 col-form-label">Detail Pekerjaan
+               <label class="col-3 col-form-label">Detail Produk
                   <span class="text-danger">*</span>
                </label>
                <div class="col-9">
-                  <textarea name="karir_detail" id="karir_detail" class="form-control" rows="3"></textarea>
+                  <textarea name="produk_detail" id="produk_detail" class="form-control" rows="3"></textarea>
                </div>
             </div>
             <div class="form-group row">
-               <label class="col-3 col-form-label">Detail Pekerjaan
+               <label class="col-3 col-form-label">Kategori Produk
                   <span class="text-danger">*</span>
                </label>
                <div class="col-9">
-                  <select class="form-control selectpicker" title="-- Pilih --" name="karir_type">
-                     <option value="Intern">Intern</option>
-                     <option value="Full-time">Full-time</option>
+                  <select class="form-control selectpicker" title="-- Pilih --" name="produk_kategori_id">
+                     @foreach ( $katProduk as $value )
+                           <option value="{{ $value->id }}">{{ $value->kategori_produk_nama }}</option>
+                     @endforeach
                   </select>
                </div>
             </div>
-            <div id="reqruitment">
-               <div class="form-group row">
-                  <label class="col-3 col-form-label">Persyaratan dan Kualifikasi
-                     <span class="text-danger">*</span>
-                  </label>
-                  <div class="col-9">
-                     <div class="input-group mb-1">
-                        <input type="text" class="form-control" name="reqruitment_detail[0]" placeholder="Masukkan Syarat" autocomplete="off"/>
-                     </div>
-                     <div id="form-repeater-req"></div>
-                  </div>
+            <div class="form-group row">
+               <label class="col-3 col-form-label">Harga
+                  <span class="text-danger">*</span>
+               </label>
+               <div class="col-4">
+                  <input id="kt_touchspin_2" type="number" class="form-control" value="0" name="produk_harga" placeholder="Masukkan Harga"/>
                </div>
-               <div class="form-group row mt-0">
-                  <div class="col-lg-3"></div>
-                     <div class="col">
-                           <a data-repeater-create="" onclick="addReqruitment(this)" class="btn font-weight-bold btn-info btn-sm">
-                              <i class="la la-plus text-center"></i>
-                              Tambah
-                           </a>
-                           <a onclick="removeReqruitment(this)" class="btn font-weight-bold btn-sm btn-danger btn-icon">
-                              <i class="la la-close"></i>
-                           </a>
-                     </div>
+               <label class="col-1 col-form-label">Stok
+                  <span class="text-danger">*</span>
+               </label>
+               <div class="col-4">
+                  <input id="kt_touchspin_1" type="number" class="form-control" value="0" name="produk_qty" placeholder="Masukkan Jumlah"/>
                </div>
             </div>
-            <div id="task">
+            <div class="thumb">
                <div class="form-group row">
-                  <label class="col-3 col-form-label">Tugas dan Kewajiban
+                  <label class="col-3 col-form-label">Foto Produk
                      <span class="text-danger">*</span>
                   </label>
                   <div class="col-9">
                      <div class="input-group mb-1">
-                        <input type="text" class="form-control" name="task_detail[0]" placeholder="Masukkan Tugas" autocomplete="off"/>
+                        <div class="input-group mb-1" id="thumb[0]">
+                           <div class="image-input image-input-empty image-input-outline" id="kt_image_5">
+                              <div class="image-input-wrapper"></div>
+
+                              <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                              <i class="fa fa-pen icon-sm text-muted"></i>
+                              <input type="file" name="thumb[0]" accept=".png, .jpg, .jpeg"/>
+                              </label>
+
+                              <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                              <i class="ki ki-bold-close icon-xs text-muted"></i>
+                              </span>
+
+                              <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+                              <i class="ki ki-bold-close icon-xs text-muted"></i>
+                              </span>
+                           </div>
+                        </div>
                      </div>
-                     <div id="form-repeater-task"></div>
-                  </div>
+                     <div id="form-repeater"></div>
+                  </div>  
                </div>
-               <div class="form-group row mt-0">
-                  <div class="col-lg-3"></div>
-                     <div class="col">
-                           <a data-repeater-create="" onclick="addTask(this)" class="btn font-weight-bold btn-info btn-sm">
-                              <i class="la la-plus"></i>
-                              Tambah
-                           </a>
-                           <a onclick="removeTask(this)" class="btn font-weight-bold btn-sm btn-danger btn-icon">
-                              <i class="la la-close"></i>
-                           </a>
-                     </div>
+               <div class="form-group row">
+                  <div class="col-3"></div>
+                  <div class="col-6">
+                     <a data-repeater-create="" onclick="addThumb(this)" class="btn font-weight-bold btn-info btn-sm">
+                     <i class="la la-plus text-center"></i>
+                     Tambah
+                  </a>
+                  <a onclick="removeThumb(this)" class="btn font-weight-bold btn-sm btn-danger btn-icon">
+                     <i class="la la-close"></i>
+                  </a>
+                  </div>
                </div>
             </div>
             {{-- <div class="form-group row">
@@ -96,7 +103,7 @@
                <div class="col-3">
                   <span class="switch switch-success">
                      <label>
-                        <input type="checkbox" checked="checked" name="karir_is_active" />
+                        <input type="checkbox" checked="checked" name="produk_is_active" />
                         <span></span>
                      </label>
                   </span>
@@ -115,33 +122,33 @@
 
 <script>
    var id = 0;
-   var idTask = 0;
-   function addReqruitment(el){
+   function addThumb(el){
       id++;
-      $('#form-repeater-req').append(`
-         <div class="input-group mb-3" id="reqruitment_detail${id}">
-            <input type="text" class="form-control" name="reqruitment_detail[${id}]" autocomplete="off" placeholder="Masukkan Syarat"/>
-         </div>
-      `);
-   }
-   
-   function removeReqruitment(el){
-      $(`#reqruitment_detail${id}`).remove();
-      id--;
-   }
+      $('#form-repeater').append(`
+         <div class="input-group mb-1" id="thumb[${id}]">
+            <div class="image-input image-input-empty image-input-outline" id="kt_image_5">
+               <div class="image-input-wrapper"></div>
 
-   function addTask(el){
-      idTask++;
-      $('#form-repeater-task').append(`
-         <div class="input-group mb-3" id="task_detail${idTask}">
-            <input type="text" class="form-control" name="task_detail[${idTask}]" autocomplete="off" placeholder="Masukkan Tugas"/>
+               <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+               <i class="fa fa-pen icon-sm text-muted"></i>
+               <input type="file" name="thumb[${id}]" accept=".png, .jpg, .jpeg"/>
+               </label>
+
+               <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+               <i class="ki ki-bold-close icon-xs text-muted"></i>
+               </span>
+
+               <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+               <i class="ki ki-bold-close icon-xs text-muted"></i>
+               </span>
+            </div>
          </div>
       `);
    }
    
-   function removeTask(el){
-      $(`#task_detail${idTask}`).remove();
-      idTask--;
+   function removeThumb(el){
+      $(`#thumb[${id}]`).remove();
+      id--;
    }
 </script>
 
