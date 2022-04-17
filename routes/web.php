@@ -51,45 +51,9 @@ Route::resource('sejarah', SejarahController::class);
 Route::resource('sosmed', SosmedController::class);
 Route::resource('visi', VisiController::class);
 
-<<<<<<< HEAD
 // route fe 
 Route::resource('portal', PortalController::class);
 Route::get('aboutus', [PortalController::class, 'aboutus']);
-=======
-
-
-Route::get('/aboutus', function () {
-    return view('portal.aboutus');
-});
-
-Route::get('/contactus', function () {
-    return view('portal.contactus');
-});
-
-Route::get('/portofolio', function () {
-    return view('portal.portofolio');
-});
-
-Route::get('/detailporto', function () {
-    return view('portal.detailporto');
-});
-
-Route::get('/detailservice', function () {
-    return view('portal.detailservice');
-});
-
-Route::get('/detailstore', function () {
-    return view('portal.detailstore');
-});
-
-Route::get('/faq', function () {
-    return view('portal.faq');
-});
-
-Route::get('/storeproduk', function () {
-    return view('portal.produkstore');
-});
->>>>>>> 3118919c3f1d0eea437fba3cff77f1908a7d8531
 
 Route::get('/login', [LoginController::class, 'view'])->name('login');
 
