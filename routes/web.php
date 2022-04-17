@@ -16,7 +16,6 @@ use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\MisiController;
 use App\Http\Controllers\PortalController;
 use App\Http\Controllers\PortofolioController;
-use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\SejarahController;
 use App\Http\Controllers\SosmedController;
 use App\Http\Controllers\VisiController;
@@ -41,9 +40,7 @@ Route::resource('user', UserController::class);
 Route::resource('kategori-jasa', KategoriJasaController::class);
 Route::resource('kategori-produk', KategoriProdukController::class);
 Route::resource('karir', KarirController::class);
-<<<<<<< HEAD
 Route::resource('produk', ProdukController::class);
-=======
 Route::resource('about', AboutController::class);
 Route::resource('carousel', CarouselController::class);
 Route::resource('faq', FaqController::class);
@@ -53,7 +50,6 @@ Route::resource('portofolio', PortofolioController::class);
 Route::resource('sejarah', SejarahController::class);
 Route::resource('sosmed', SosmedController::class);
 Route::resource('visi', VisiController::class);
->>>>>>> e528679a465e0d39ecaf220fc1e0e40f05cdb149
 
 // route fe 
 Route::resource('portal', PortalController::class);
