@@ -1,6 +1,5 @@
 @extends('portal.layouts.main')
 @section('body')
-<<<<<<< HEAD
 @php
     $title = 'about_us';
 @endphp
@@ -8,11 +7,6 @@
 <!-- Page Header Start -->
 <div class="container-fluid page-header1 py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5" align="center">
-=======
-    <!-- Page Header Start -->
-    <div class="container-fluid page-header1 py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5" align="center">
->>>>>>> 3118919c3f1d0eea437fba3cff77f1908a7d8531
             <h1 class="display-1 text-white animated slideInDown" style="font-family: 'Poppins', sans-serif;">About Us</h1>
         </div>
     </div>
