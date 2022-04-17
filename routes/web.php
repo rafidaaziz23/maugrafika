@@ -31,8 +31,36 @@ Route::resource('karir', KarirController::class);
 
 
 
-Route::get('/produk', function () {
-    return view('master.produk.index');
+Route::get('/aboutus', function () {
+    return view('portal.aboutus');
+});
+
+Route::get('/contactus', function () {
+    return view('portal.contactus');
+});
+
+Route::get('/portofolio', function () {
+    return view('portal.portofolio');
+});
+
+Route::get('/detailporto', function () {
+    return view('portal.detailporto');
+});
+
+Route::get('/detailservice', function () {
+    return view('portal.detailservice');
+});
+
+Route::get('/detailstore', function () {
+    return view('portal.detailstore');
+});
+
+Route::get('/faq', function () {
+    return view('portal.faq');
+});
+
+Route::get('/storeproduk', function () {
+    return view('portal.produkstore');
 });
 
 Route::get('/login', [LoginController::class, 'view'])->name('login');
