@@ -1,9 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-@php
-    $page = 'galeri';
-@endphp
 <div class="card card-custom card-stretch gutter-b">
     <div class="card-body">
         <!--begin::Engage Widget 15-->

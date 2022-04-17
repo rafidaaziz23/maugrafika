@@ -1,9 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-@php
-    $page = 'carousel';
-@endphp
 <!-- <div class="alert alert-custom alert-white alert-shadow gutter-b" role="alert">
    <div class="alert-icon">
       <span class="svg-icon svg-icon-primary svg-icon-xl">
