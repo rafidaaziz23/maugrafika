@@ -74,13 +74,13 @@
 
 
     <!-- Navbar Start -->
-    @include('partials.navbar')
+    @include('portal.partials.navbar')
     <!-- Navbar End -->
 
     @yield('body')
 
     <!-- Footer Start -->
-    @include('partials.footer')
+    @include('portal.partials.footer')
     <!-- Footer End -->
 
     <!-- Back to Top -->
