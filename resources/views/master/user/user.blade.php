@@ -1,9 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-@php
-    $page = "user";
-@endphp
 
 <div class="card card-custom">
    <div class="card-header flex-wrap border-0 pt-6 pb-0">

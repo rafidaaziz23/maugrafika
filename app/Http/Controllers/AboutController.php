@@ -127,5 +127,4 @@ class AboutController extends Controller
         return redirect()->route('about.index')
             ->with('success', 'About deleted successfully');
     }
-    
 }
