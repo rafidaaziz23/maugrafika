@@ -1,6 +1,9 @@
-@extends('layouts.main')
+@extends('portal.layouts.main')
 
 @section('body')
+@php
+    $title = '';
+@endphp
     <style>
         .section-title {
             color: black;
