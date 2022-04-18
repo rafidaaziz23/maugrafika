@@ -59,6 +59,24 @@
             </a>
          </li>
          <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            <a href="{{ route('produk.index') }}" class="menu-link menu-toggle">
+               <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+               </i>
+               <span class="menu-text">Produk</span>
+               <i class="menu-arrow"></i>
+            </a>
+         </li>
+         <li class="menu-item menu-item-submenu " aria-haspopup="true" data-menu-toggle="hover">
+            <a href="{{ route('jasa.index') }}" class="menu-link menu-toggle">
+               <i class="menu-bullet menu-bullet-dot">
+                  <span></span>
+               </i>
+               <span class="menu-text">Jasa</span>
+               <i class="menu-arrow"></i>
+            </a>
+         </li>
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('karir.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
