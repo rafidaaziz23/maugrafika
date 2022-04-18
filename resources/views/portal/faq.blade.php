@@ -24,7 +24,7 @@
         </div>
         </div>
         <h2 class="title">FAQs</h2>
-@foreach ($faq as $value)
+        @foreach ($faq as $value)
         <div class="faq">
             <div class="question">
                 <h3>{{ $value->faq_title }}</h3>
