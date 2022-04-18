@@ -55,10 +55,6 @@ Route::resource('visi', VisiController::class);
 Route::resource('portal', PortalController::class);
 Route::get('aboutus', [PortalController::class, 'aboutus']);
 
-Route::get('/aboutus', function () {
-    return view('portal.aboutus');
-});
-
 Route::get('/contactus', function () {
     return view('portal.contactus');
 });
