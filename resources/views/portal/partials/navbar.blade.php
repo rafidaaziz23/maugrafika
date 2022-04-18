@@ -12,7 +12,7 @@ data-wow-delay="0.1s">
         <a href="/" class="nav-item nav-link {{ ($title === "Home") ? 'active' : '' }}">Home</a>
         <a href="/aboutus" class="nav-item nav-link {{ ($title === "About Us") ? 'active' : '' }}">About Us</a>
         <a href="/storeproduk" class="nav-item nav-link {{ ($title === "Store") ? 'active' : '' }}">Store</a>
-        <a href="/portofolio" class="nav-item nav-link {{ ($title === "Portofolio") ? 'active' : '' }}">Portofolio</a>
+        <a href="/portofolios" class="nav-item nav-link {{ ($title === "Portofolio") ? 'active' : '' }}">Portofolio</a>
         <a href="/faqs" class="nav-item nav-link {{ ($title === "Faq") ? 'active' : '' }}">FAQ</a>
         <a href="/contactus" class="nav-item nav-link {{ ($title === "Contact Us") ? 'active' : '' }}">Contact Us</a>
     </div>

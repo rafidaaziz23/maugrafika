@@ -13,6 +13,7 @@ class PortalController extends Controller
     {
         return view('portal.index');
     }
+    
     public function aboutus()
     {
         $visi = Visi::all();

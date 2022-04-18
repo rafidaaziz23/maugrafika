@@ -35,7 +35,7 @@ use App\Http\Controllers\KategoriProdukController;
 // Routes Roles 
 // Route untuk admin
 // Route::get('/role', [RoleController::class, 'index'])->middleware('auth');
-Route::resource('role', RoleController::class)->middleware('auth');
+Route::resource('role', RoleController::class);
 Route::resource('user', UserController::class);
 Route::resource('kategori-jasa', KategoriJasaController::class);
 Route::resource('kategori-produk', KategoriProdukController::class);
@@ -54,13 +54,18 @@ Route::resource('visi', VisiController::class);
 
 // route fe 
 Route::resource('portal', PortalController::class);
+// Route::get('home', [PortalController::class, 'home']);
 Route::get('aboutus', [PortalController::class, 'aboutus']);
+
+Route::get('/', function () {
+    return view('portal.index');
+});
 
 Route::get('/contactus', function () {
     return view('portal.contactus');
 });
 
-Route::get('/portofolio-portal', function () {
+Route::get('/portofolios', function () {
     return view('portal.portofolio');
 });
 
