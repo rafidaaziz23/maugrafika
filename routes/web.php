@@ -1,24 +1,24 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\CarouselController;
-use App\Http\Controllers\FaqController;
-use App\Http\Controllers\GaleriController;
-use App\Models\Role;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\JasaController;
+use App\Http\Controllers\MisiController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VisiController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\KarirController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\PortalController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\SosmedController;
+use App\Http\Controllers\SejarahController;
+use App\Http\Controllers\CarouselController;
+use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\KategoriJasaController;
 use App\Http\Controllers\KategoriProdukController;
-use App\Http\Controllers\MisiController;
-use App\Http\Controllers\PortalController;
-use App\Http\Controllers\PortofolioController;
-use App\Http\Controllers\SejarahController;
-use App\Http\Controllers\SosmedController;
-use App\Http\Controllers\VisiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +41,7 @@ Route::resource('kategori-jasa', KategoriJasaController::class);
 Route::resource('kategori-produk', KategoriProdukController::class);
 Route::resource('karir', KarirController::class);
 Route::resource('produk', ProdukController::class);
+Route::resource('jasa', JasaController::class);
 Route::resource('about', AboutController::class);
 Route::resource('carousel', CarouselController::class);
 Route::resource('faq', FaqController::class);

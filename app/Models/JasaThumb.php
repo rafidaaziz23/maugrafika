@@ -10,7 +10,7 @@ class JasaThumb extends Model
     use HasFactory;
 
     protected $fillable = [
-        'karir_id',
+        'jasa_id',
         'thumb',
     ];
 

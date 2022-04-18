@@ -1,9 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-@php
-    $page = 'produk';
-@endphp
 <div class="card card-custom card-stretch gutter-b">
    <div class="card-body">
       <!--begin::Engage Widget 15-->
@@ -37,7 +34,7 @@
       <div class="mb-11">
          <!--begin::Heading-->
          <div class="d-flex justify-content-between align-items-center mb-7">
-               <a href="{{ route('produk.create') }}" class="btn btn-light-success btn-sm font-weight-bolder">
+               <a href="{{ route('jasa.create') }}" class="btn btn-light-success btn-sm font-weight-bolder">
                <span class="svg-icon svg-icon-succcess svg-icon-2x">
                   <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Code\Plus.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -52,7 +49,7 @@
          <!--end::Heading-->
          <!--begin::Products-->
          <div class="row">
-            @foreach ( $produks as $key => $value )
+            @foreach ( $jasas as $key => $value )
             <!--begin::Product-->
             <div class="col-md-4 col-xxl-4">
                <!--begin::Card-->
@@ -61,14 +58,14 @@
                      <!--begin::Image-->
                      <div class="overlay">
                         <div class="overlay-wrapper rounded bg-light text-center">
-                           <img src="{{ Storage::url('public/uploads/products/').optional($value->thumbs->first())->thumb }}" alt="" class="mw-100 w-200px" />
+                           <img src="{{ Storage::url('public/uploads/jasas/').optional($value->thumbs->first())->thumb }}" alt="" class="mw-100 w-200px" />
                         </div>
                         <div class="overlay-layer">
-                           <form action="{{ route('produk.destroy',$value->id) }}" method="POST">
-                              <a href="{{ route('produk.show',$value->id) }}" class="btn font-weight-bolder btn-lg btn-shadow-hover btn-transparent-info mr-2">
+                           <form action="{{ route('jasa.destroy',$value->id) }}" method="POST">
+                              <a href="{{ route('jasa.show',$value->id) }}" class="btn font-weight-bolder btn-lg btn-shadow-hover btn-transparent-info mr-2">
                                  <span class="far fa-list-alt"></span> 
                               </a>
-                              <a href="{{ route('produk.edit' ,$value->id) }}" class="btn font-weight-bolder btn-lg btn-shadow-hover btn-transparent-warning mr-2">
+                              <a href="{{ route('jasa.edit' ,$value->id) }}" class="btn font-weight-bolder btn-lg btn-shadow-hover btn-transparent-warning mr-2">
                                  <span class="far fa-edit"></span> 
                               </a>
                               @csrf
@@ -82,8 +79,8 @@
                      <!--end::Image-->
                      <!--begin::Details-->
                      <div class="text-center mt-5 mb-md-0 mb-lg-5 mb-md-0 mb-lg-5 mb-lg-0 mb-5 d-flex flex-column">
-                        <a href="#" class="font-size-h5 font-weight-bolder text-dark-75 text-hover-primary mb-1">{{ $value['produk_nama'] }}</a>
-                        <span class="font-size-lg">Rp.{{ $value['produk_harga'] }} | Stok : {{ $value['produk_qty'] }}</span>
+                        <a href="#" class="font-size-h5 font-weight-bolder text-dark-75 text-hover-primary mb-1">{{ $value['jasa_nama'] }}</a>
+                        <span class="font-size-lg">Rp.{{ $value['jasa_harga'] }}</span>
                      </div>
                      <!--end::Details-->
                   </div>

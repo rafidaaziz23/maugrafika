@@ -1,4 +1,4 @@
-<li class="menu-item menu-item-submenu menu-item-submenu-open {{ ($page != '')? "menu-item-open" : '' }}" aria-haspopup="true" data-menu-toggle="hover">
+<li class="menu-item menu-item-submenu menu-item-submenu-open menu-item-open" aria-haspopup="true" data-menu-toggle="hover">
    <a href="javascript:;" class="menu-link menu-toggle">
       <span class="svg-icon menu-icon">
          <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-left-panel-2.svg-->
@@ -22,7 +22,7 @@
                <span class="menu-text">Data Master</span>
             </span>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'role')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="/role" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -31,7 +31,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'user')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="/user" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -40,7 +40,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'kategori-produk')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="/kategori-produk" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -49,7 +49,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'kategori-jasa')? "menu-item-active": '' }} " aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu " aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('kategori-jasa.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -58,7 +58,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'karir')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('karir.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -67,7 +67,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'about')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('about.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -76,7 +76,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'carousel')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('carousel.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -85,7 +85,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'faq')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('faq.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -94,7 +94,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'galeri')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('galeri.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -103,7 +103,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'misi')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('misi.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -112,7 +112,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'portofolio')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('portofolio.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -121,7 +121,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'sejarah')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('sejarah.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -130,7 +130,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'sosmed')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('sosmed.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>
@@ -139,7 +139,7 @@
                <i class="menu-arrow"></i>
             </a>
          </li>
-         <li class="menu-item menu-item-submenu {{ ($page = 'visi')? "menu-item-active": '' }}" aria-haspopup="true" data-menu-toggle="hover">
+         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
             <a href="{{ route('visi.index') }}" class="menu-link menu-toggle">
                <i class="menu-bullet menu-bullet-dot">
                   <span></span>

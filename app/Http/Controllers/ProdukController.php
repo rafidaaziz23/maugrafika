@@ -20,8 +20,7 @@ class ProdukController extends Controller
     public function index()
     {
         $produks = Produk::with('thumbs')->latest()->get();
-        // dd($produks);
-        // return $produks;
+
         return view('master.produk.index', compact('produks'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
@@ -139,18 +138,17 @@ class ProdukController extends Controller
         ]);
         if ($request->hasFile('thumb')){
 
-        foreach($request->file('thumb') as $file){
-        $file_name = $file->hashName();
-        $file_path = storage_path('app/public/uploads/products');
-        $file->move($file_path, $file_name);
+            foreach($request->file('thumb') as $file){
+                $file_name = $file->hashName();
+                $file_path = storage_path('app/public/uploads/products');
+                $file->move($file_path, $file_name);
 
-        Storage::delete('public/uploads/products/'.$file_name);
+                Storage::delete('public/uploads/products/'.$file_name);
 
-        ProdukThumb::where('produk_id', $produk['id'])->update([
-            'produk_id'     => $produk['id'],
-            'thumb'         => $file_name,
-        ]);
-        }
+                ProdukThumb::where('produk_id', $produk['id'])->update([
+                    'thumb' => $file_name,
+                ]);
+            }
         
         }
 
@@ -166,6 +164,16 @@ class ProdukController extends Controller
      */
     public function destroy(Produk $produk)
     {
-        //
+
+        $thumb = ProdukThumb::where('produk_id', $produk['id'])->get();
+        $jumlah = count($thumb['thumb']);
+        for( $i = 0; $i < $jumlah; $i++){
+            Storage::delete('public/uploads/products/'. $thumb['thumb'][$i]);
+            ProdukThumb::where('produk_id', $produk['id'])->delete();
+        }
+        $produk->delete();
+
+        return redirect()->route('produk.index')
+            ->with('success', 'Produk Deleted Successfully');
     }
 }
