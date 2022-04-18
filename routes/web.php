@@ -53,10 +53,13 @@ Route::resource('visi', VisiController::class);
 
 // route fe 
 Route::resource('portal', PortalController::class);
+
+Route::get('portofolios', [PortalController::class, 'portofolio']);
 Route::get('aboutus', [PortalController::class, 'aboutus']);
-
+Route::get('/faqs', [PortalController::class, 'faq']);
+Route::get('contactus', [PortalController::class, 'contactus']);
+Route::get('detailporto', [PortalController::class, 'detailporto']);
 Route::get('/login', [LoginController::class, 'view'])->name('login');
-
 Route::post('/login/auth', [LoginController::class, 'storeLogin'])->name('postLogin')->middleware('guest');
 
 

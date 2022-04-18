@@ -55,7 +55,7 @@
                         <img src="img/portofolio-1.png" alt="">
                     </div>
                     <a href="/detailporto">
-                        <h5>Membordir bet tentara rusiayang menyerang ukraina...</h5>
+                        <h5>Membordir bet tentara rusia yang menyerang ukraina...</h5>
                     </a>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, provident molestias
                         culpa, sed omnis...</p>
@@ -108,7 +108,7 @@
                     <div class="porto-img">
                         <img src="img/Channel.jpg" alt="">
                     </div>
-                    <h5>Membordir bet tentara rusiayang menyerang ukraina...</h5>
+                    <h5>Membordir bet tentara rusia yang menyerang ukraina...</h5>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat, provident molestias
                         culpa, sed omnis...</p>
                 </div>

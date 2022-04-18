@@ -1,12 +1,12 @@
 @extends('portal.layouts.main')
 @section('body')
-@php
+    @php
     $title = 'about_us';
-@endphp
-    
-<!-- Page Header Start -->
-<div class="container-fluid page-header1 py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5" align="center">
+    @endphp
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header1 py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5" align="center">
             <h1 class="display-1 text-white animated slideInDown" style="font-family: 'Poppins', sans-serif;">About Us</h1>
         </div>
     </div>
@@ -27,20 +27,11 @@
                     <div class="textbox">
                         <h1 class="display-6 mb-4" align="center">Visi</h1>
                         <hr>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam unde
-                            accusamus error nulla
-                            esse qui vel mollitia aliquam aliquid. Suscipit aperiam aliquid ea! Deserunt nesciunt quas
-                            sed provident, cumque commodi sit nisi repellat itaque, dignissimos corrupti labore
-                            molestias, sint ipsa fuga ad. A, ex cupiditate, assumenda, nobis amet aut molestiae
-                            necessitatibus eveniet provident dolore fugiat fuga? Corporis odit delectus magni veritatis
-                            sunt aliquam, atque sit maiores laudantium cum est similique voluptas nesciunt asperiores
-                            architecto neque rerum cupiditate tenetur ratione quo voluptatum repellendus? Dolore maxime
-                            rem aspernatur animi. Cumque ut consequuntur iste dolore! Atque repudiandae molestiae
-                            blanditiis, veniam obcaecati itaque amet fugiat unde, nisi soluta temporibus dicta quas?
-                            Doloremque, ratione blanditiis fugiat facilis voluptatibus molestiae aut facere ipsum. Alias
-                            nobis nemo hic temporibus sed harum magni cum dolor molestias at enim iure, consequatur
-                            sequi dolore veritatis adipisci dolorum similique non nesciunt?
-                        </p>
+                        @foreach ($visi as $key => $value)
+                            <li>
+                                {{ $value['visi_detail'] }}
+                            </li>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -57,21 +48,11 @@
                     <div class="textbox">
                         <h1 class="display-6 mb-4" align="center">Misi</h1>
                         <hr>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam unde
-                            accusamus
-                            error nulla
-                            esse qui vel mollitia aliquam aliquid. Suscipit aperiam aliquid ea! Deserunt nesciunt quas
-                            sed provident, cumque commodi sit nisi repellat itaque, dignissimos corrupti labore
-                            molestias, sint ipsa fuga ad. A, ex cupiditate, assumenda, nobis amet aut molestiae
-                            necessitatibus eveniet provident dolore fugiat fuga? Corporis odit delectus magni veritatis
-                            sunt aliquam, atque sit maiores laudantium cum est similique voluptas nesciunt asperiores
-                            architecto neque rerum cupiditate tenetur ratione quo voluptatum repellendus? Dolore maxime
-                            rem aspernatur animi. Cumque ut consequuntur iste dolore! Atque repudiandae molestiae
-                            blanditiis, veniam obcaecati itaque amet fugiat unde, nisi soluta temporibus dicta quas?
-                            Doloremque, ratione blanditiis fugiat facilis voluptatibus molestiae aut facere ipsum. Alias
-                            nobis nemo hic temporibus sed harum magni cum dolor molestias at enim iure, consequatur
-                            sequi dolore veritatis adipisci dolorum similique non nesciunt?
-                        </p>
+                        @foreach ($misi as $key => $value)
+                            <li>
+                                {{ $value['misi_detail'] }}
+                            </li>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
