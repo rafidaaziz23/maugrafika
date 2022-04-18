@@ -24,10 +24,10 @@
         </div>
         </div>
         <h2 class="title">FAQs</h2>
-
+@foreach ($faq as $value)
         <div class="faq">
             <div class="question">
-                <h3>What is Java Script ?</h3>
+                <h3>{{ $value->faq_title }}</h3>
 
                 <svg width="15" height="10" viewBox="0 0 42 25">
                     <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
@@ -36,49 +36,11 @@
             </div>
             <div class="answer">
                 <p>
-                    Pelatihan Online JavaScript dengan Instruktur berpengalaman dan dibantu
-                    sampai handal. Belajar bahasa pemrograman JavaScript bersama Hacktiv8 dengan
-                    450+ Hiring Partner. Brands: Hacktiv8 Indonesia, The First Coding Bootcamp,
-                    in Indonesia.
+                    {{$value->faq_detail}}
                 </p>
             </div>
         </div>
-        <div class="faq">
-            <div class="question">
-                <h3>What is Java Script ?</h3>
-
-                <svg width="15" height="10" viewBox="0 0 42 25">
-                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
-                </svg>
-
-            </div>
-            <div class="answer">
-                <p>
-                    Pelatihan Online JavaScript dengan Instruktur berpengalaman dan dibantu
-                    sampai handal. Belajar bahasa pemrograman JavaScript bersama Hacktiv8 dengan
-                    450+ Hiring Partner. Brands: Hacktiv8 Indonesia, The First Coding Bootcamp,
-                    in Indonesia.
-                </p>
-            </div>
-        </div>
-        <div class="faq">
-            <div class="question">
-                <h3>What is Java Script ?</h3>
-
-                <svg width="15" height="10" viewBox="0 0 42 25">
-                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round" />
-                </svg>
-
-            </div>
-            <div class="answer">
-                <p>
-                    Pelatihan Online JavaScript dengan Instruktur berpengalaman dan dibantu
-                    sampai handal. Belajar bahasa pemrograman JavaScript bersama Hacktiv8 dengan
-                    450+ Hiring Partner. Brands: Hacktiv8 Indonesia, The First Coding Bootcamp,
-                    in Indonesia.
-                </p>
-            </div>
-        </div>
+        @endforeach
     </section>
     <!-- Template Javascript -->
     <?php $title = 'Faq'; ?>

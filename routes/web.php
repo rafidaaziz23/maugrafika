@@ -46,7 +46,7 @@ Route::resource('carousel', CarouselController::class);
 Route::resource('faq', FaqController::class);
 Route::resource('galeri', GaleriController::class);
 Route::resource('misi', MisiController::class);
-Route::resource('portofolio-admin', PortofolioController::class);
+Route::resource('portofolio', PortofolioController::class);
 Route::resource('sejarah', SejarahController::class);
 Route::resource('sosmed', SosmedController::class);
 Route::resource('visi', VisiController::class);
@@ -63,7 +63,7 @@ Route::get('/contactus', function () {
     return view('portal.contactus');
 });
 
-Route::get('/portofolio', function () {
+Route::get('/portofolio-portal', function () {
     return view('portal.portofolio');
 });
 
@@ -79,9 +79,7 @@ Route::get('/detailstore', function () {
     return view('portal.detailstore');
 });
 
-Route::get('/faq', function () {
-    return view('portal.faq');
-});
+Route::get('/faqs',[PortalController::class, 'faq']);
 
 Route::get('/storeproduk', function () {
     return view('portal.produkstore');
