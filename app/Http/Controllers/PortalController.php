@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Faq;
+use App\Models\Misi;
+use App\Models\Visi;
 use Illuminate\Http\Request;
 
 class PortalController extends Controller
@@ -12,6 +15,12 @@ class PortalController extends Controller
     }
     public function aboutus()
     {
-        return view('portal.aboutus');
+        $visi = Visi::all();
+        $misi = Misi::all();
+        return view('portal.aboutus', compact('visi','misi'));
+    }
+    public function faq(){
+       $faq = Faq::all();
+        return view('portal.faq',compact('faq'));
     }
 }

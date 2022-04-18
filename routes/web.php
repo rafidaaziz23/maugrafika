@@ -56,6 +56,34 @@ Route::resource('visi', VisiController::class);
 Route::resource('portal', PortalController::class);
 Route::get('aboutus', [PortalController::class, 'aboutus']);
 
+Route::get('/contactus', function () {
+    return view('portal.contactus');
+});
+
+Route::get('/portofolio-portal', function () {
+    return view('portal.portofolio');
+});
+
+Route::get('/detailporto', function () {
+    return view('portal.detailporto');
+});
+
+Route::get('/detailservice', function () {
+    return view('portal.detailservice');
+});
+
+Route::get('/detailstore', function () {
+    return view('portal.detailstore');
+});
+
+Route::get('/faqs',[PortalController::class, 'faq']);
+
+Route::get('/storeproduk', function () {
+    return view('portal.produkstore');
+});
+
+
+
 Route::get('/login', [LoginController::class, 'view'])->name('login');
 
 Route::post('/login/auth', [LoginController::class, 'storeLogin'])->name('postLogin')->middleware('guest');
