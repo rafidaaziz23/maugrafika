@@ -122,7 +122,7 @@
                     <div class="row g-4">
                         <div class="col-12">
                             <div class="d-flex align-items-start">
-                                <img class="flex-shrink-0" src="img/icons/vector-1.png" alt="Icon">
+                                <img class="flex-shrink-0" src="img/icons/service-1.png" alt="Icon">
                                 <div class="ms-4">
                                     <h3>Design Approach</h3>
                                     <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
@@ -131,7 +131,7 @@
                         </div>
                         <div class="col-12">
                             <div class="d-flex align-items-start">
-                                <img class="flex-shrink-0" src="img/icons/vector-2.png" alt="Icon">
+                                <img class="flex-shrink-0" src="img/icons/service-2.png" alt="Icon">
                                 <div class="ms-4">
                                     <h3>Innovative Solutions</h3>
                                     <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>
@@ -140,7 +140,7 @@
                         </div>
                         <div class="col-12">
                             <div class="d-flex align-items-start">
-                                <img class="flex-shrink-0" src="img/icons/vector-3.png" alt="Icon">
+                                <img class="flex-shrink-0" src="img/icons/service-3.png" alt="Icon">
                                 <div class="ms-4">
                                     <h3>Project Management</h3>
                                     <p class="mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.</p>

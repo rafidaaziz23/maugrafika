@@ -68,6 +68,9 @@ Route::get('/contactus', function () {
 Route::get('/portofolios', function () {
     return view('portal.portofolio');
 });
+Route::get('/keranjang', function () {
+    return view('portal.keranjang');
+});
 
 Route::get('/detailporto', function () {
     return view('portal.detailporto');
