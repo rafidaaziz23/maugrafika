@@ -171,10 +171,9 @@
                      {{-- <img src="storage/public/uploads/users/{{$value->user_photo }}" alt=""> --}}
                   </span>
                </td>
-               <td>{{ $value->user_username}}</td>
-               <td>{{ $value->user_name}}</td>
-               <td>{{ optional($value->roles)->role_nama }}</td>
-               <td>{{ $value->user_email}}</td>
+               <td>{{ $value->nama}}</td>
+               <td>{{ $value->email}}</td>
+               <td>{{ $value->role }}</td>
                <td>
                   <form action="{{ route('user.destroy',$value->id) }}" method="POST">
 

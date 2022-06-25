@@ -42,7 +42,7 @@ class RoleController extends Controller
      * @param  \App\Http\Requests\StoreRoleRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request  $request)
+    public function store(Request $request)
     {
         // $request->validate([
         //     'role_nama' => 'required',

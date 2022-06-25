@@ -47,10 +47,11 @@ Route::resource('carousel', CarouselController::class);
 Route::resource('faq', FaqController::class);
 Route::resource('galeri', GaleriController::class);
 Route::resource('misi', MisiController::class);
+Route::resource('visi', VisiController::class);
 Route::resource('portofolio', PortofolioController::class);
 Route::resource('sejarah', SejarahController::class);
 Route::resource('sosmed', SosmedController::class);
-Route::resource('visi', VisiController::class);
+
 
 // route fe 
 Route::resource('portal', PortalController::class);

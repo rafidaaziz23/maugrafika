@@ -31,8 +31,6 @@
             }
 
             .wrapper {
-
-
                 display: flex;
                 overflow-x: auto;
             }
